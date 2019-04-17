@@ -1,4 +1,4 @@
-# SIMPL - dastest way to see if you're broke
+# SIMPL - fastest way to see if you're broke
 
 no features, no download, fast loadtimes.
 
