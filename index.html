@@ -48,8 +48,7 @@ function redirectToPortfolioGenerator() {
     let append = `XMR=${document.getElementById('tf-xmr').value};`;
     urlSuffix += append;
   }
-  self.location = `/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
-}
+  self.location = `SIMPL/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
 </script>
 
 </body>
