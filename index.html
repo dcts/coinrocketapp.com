@@ -3,25 +3,55 @@
 <head>
   <title>landing page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+
+
 </head>
 <body>
 
 <h1>SIMPL</h1>
 <h2>fastest way to see if you're broke</h2>
 
-<input type="radio" name="btc" value="btc">Bitcoin
-<input class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
-<input type="radio" name="eth" value="eth">Ethereum
-<input class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
-<input type="radio" name="holo" value="holo">Holochain
-<input class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
-<input type="radio" name="iota" value="iota">IOTA
-<input class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
-<input type="radio" name="xmr" value="xmr">Monero
-<input class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
-<button id="generate-pf" onclick="location.href = 'portfolio-generator/index.html?BTC=1;ETH=10;HOLO=10';">GO TO MY PORTFOLIO!</button><br>
-<button id="generate-pf" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
+<input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
+<input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
+<input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
+<input id="tf-eth" class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
+<input id="rb-holo" type="radio" name="holo" value="holo">Holochain
+<input id="tf-holo" class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
+<input id="rb-iota" type="radio" name="iota" value="iota">IOTA
+<input id="tf-iota" class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
+<input id="rb-xmr" type="radio" name="xmr" value="xmr">Monero
+<input id="tf-xmr" class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
+<button id="generate-pf" onclick="redirectToPortfolioGenerator();">GO TO MY PORTFOLIO!</button><br>
+<button id="api-call" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
 <hr>
+
+<script type="text/javascript">
+function redirectToPortfolioGenerator() {
+  let urlSuffix = "";
+  if (document.getElementById('rb-btc').checked) {
+    let append = `BTC=${document.getElementById('tf-btc').value};`;
+    urlSuffix += append;
+  }
+  if (document.getElementById('rb-eth').checked) {
+    let append = `ETH=${document.getElementById('tf-eth').value};`;
+    urlSuffix += append;
+  }
+  if (document.getElementById('rb-holo').checked) {
+    let append = `HOLO=${document.getElementById('tf-holo').value};`;
+    urlSuffix += append;
+  }
+  if (document.getElementById('rb-iota').checked) {
+    let append = `IOTA=${document.getElementById('tf-iota').value};`;
+    urlSuffix += append;
+  }
+  if (document.getElementById('rb-xmr').checked) {
+    let append = `XMR=${document.getElementById('tf-xmr').value};`;
+    urlSuffix += append;
+  }
+  self.location = `/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
+}
+</script>
 
 </body>
 </html>
+

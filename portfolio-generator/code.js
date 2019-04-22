@@ -1,8 +1,6 @@
 
 function getparameter() {
-
     // getelementfrom
-
 }
 
 
