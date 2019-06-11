@@ -1,4 +1,4 @@
-# SIMPL - fastest way to see if you're broke
+# FAST COIN CHECK - fastest way to see if you're broke
 
 no features, no download, fast loadtimes.
 
