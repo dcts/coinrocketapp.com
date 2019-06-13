@@ -1,0 +1,33 @@
+.header {
+  background: #525252;
+  background: white;
+  color: #525252;
+  /*border: 1px solid #666;*/
+  height: 135px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border-bottom-right-radius: 21px;
+  border-bottom-left-radius: 21px;
+  box-shadow: 0 0 13px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.header > h1 {
+  margin: 20px;
+}
+.header > p {
+  margin: 20px;
+}
+
+/* THE CONTENT BEHIND THE STICKY HEADER */
+/* ...pull to refresh... */
+/* ...needs same height as the header! */
+.placeholder {
+  height: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid red;*/
+}

@@ -1,56 +1,176 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>landing page</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="fastest cryptocurrency portfolio tracking webapp - no login. no download. fast loadtimes">
+  <title>FastCoinCheck</title>
+  <meta name="keywords" content="bitcoin, cryptocurrency, crypto, portfolio, webapp, tracking, blockchain, decentralization">
+  <meta name="author" content="dcts">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- LOAD STYLESHEETS -->
+  <link rel="stylesheet" href="css/basic-style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/coin-cards.css">
+  <!-- @TODO -->
+
+  <!-- LOAD FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> -->
+
+  <!-- CARDS FACEBOOK / TWITTER / SOCIAL MEDIA ... when sharing -->
+  <!-- @TODO -->
+
+  <!-- FAVICON -->
+  <!-- @TODO -->
+  <!-- FAVICON SAVE TO HOMESCREEN -->
+  <!-- @TODO -->
 
 </head>
 <body>
+  <div class="container-main">
 
-<h1>SIMPL</h1>
-<h2>fastest way to see if you're broke</h2>
+    <div class="header">
+      <h1 class="center">CoinRocket🚀</h1>
+      <p class="center">Portfolio Value: 36'341.25 €</p>
+    </div>
+    <div class="placeholder">
+      <p>Pull to refresh</p>
+    </div>
 
-<input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
-<input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
-<input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
-<input id="tf-eth" class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
-<input id="rb-holo" type="radio" name="holo" value="holo">Holochain
-<input id="tf-holo" class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
-<input id="rb-iota" type="radio" name="iota" value="iota">IOTA
-<input id="tf-iota" class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
-<input id="rb-xmr" type="radio" name="xmr" value="xmr">Monero
-<input id="tf-xmr" class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
-<button id="generate-pf" onclick="redirectToPortfolioGenerator();">GO TO MY PORTFOLIO!</button><br>
-<button id="api-call" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
-<hr>
+    <div class="coin-cards-container">
 
-<script type="text/javascript">
-function redirectToPortfolioGenerator() {
-  let urlSuffix = "";
-  if (document.getElementById('rb-btc').checked) {
-    let append = `BTC=${document.getElementById('tf-btc').value};`;
-    urlSuffix += append;
-  }
-  if (document.getElementById('rb-eth').checked) {
-    let append = `ETH=${document.getElementById('tf-eth').value};`;
-    urlSuffix += append;
-  }
-  if (document.getElementById('rb-holo').checked) {
-    let append = `HOLO=${document.getElementById('tf-holo').value};`;
-    urlSuffix += append;
-  }
-  if (document.getElementById('rb-iota').checked) {
-    let append = `IOTA=${document.getElementById('tf-iota').value};`;
-    urlSuffix += append;
-  }
-  if (document.getElementById('rb-xmr').checked) {
-    let append = `XMR=${document.getElementById('tf-xmr').value};`;
-    urlSuffix += append;
-  }
-  self.location = `SIMPL/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
-</script>
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/btc.svg" alt="">
+          <div class="percentage">74%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Bitcoin</p>
+          <p class="coin-price">7'256.20 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">36'281.20 €</p>
+          <p class="holdings-amount">5 BTC</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/bch.svg" alt="">
+          <div class="percentage">4%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Bitcoin Cash</p>
+          <p class="coin-price">366.44 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">1'832.05 €</p>
+          <p class="holdings-amount">5 BCH</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/eth.svg" alt="">
+          <div class="percentage">11%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Ethereum</p>
+          <p class="coin-price">224.20 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">5'329.24 €</p>
+          <p class="holdings-amount">24.77 ETH</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/hot.svg" alt="">
+          <div class="percentage">3%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Holochain</p>
+          <p class="coin-price">0.001726 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">1'726.24 €</p>
+          <p class="holdings-amount">1'000'000 HOT</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/xmr.svg" alt="">
+          <div class="percentage">6%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Monero</p>
+          <p class="coin-price">81.30 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">2'845.50 €</p>
+          <p class="holdings-amount">35 XMR</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/etn.svg" alt="">
+          <div class="percentage">1%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Electroneum</p>
+          <p class="coin-price">0.004368 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">524.16 €</p>
+          <p class="holdings-amount">120'000 ETN</p>
+        </div>
+      </div>
+
+      <!-- COIN CARD -->
+      <div class="coin-card">
+        <div class="icon">
+          <div class="icon-flex">
+            <img src="images/neo.svg" alt="">
+          <div class="percentage">1%</div>
+          </div>
+        </div>
+        <div class="coin-info">
+          <p class="coin-name">Neo</p>
+          <p class="coin-price">13.45 €</p>
+        </div>
+        <div class="holdings-info">
+          <p class="holdings-value">672.50 €</p>
+          <p class="holdings-amount">50 NEO</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
 
 </body>
 </html>
-
