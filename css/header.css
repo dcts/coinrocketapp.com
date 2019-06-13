@@ -1,0 +1,26 @@
+.header {
+  background: #525252;
+  background: white;
+  color: #525252;
+
+  border: 1px solid #666;
+  height: 135px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border: 1px solid green;
+}
+
+.header h1, p {
+  margin: 20px;
+}
+
+.placeholder {
+  height: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+
+}
