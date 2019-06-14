@@ -5,7 +5,7 @@ const getUrlSuffix = url => {
 };
 // converts params string to object
 const convertUrlSuffix = urlSuffix => {
-  let coins = urlSuffix.split(";");
+  let coins = urlSuffix.split("&");
   console.log(coins);
   console.log(coins[0]);
   result = {};
@@ -13,9 +13,9 @@ const convertUrlSuffix = urlSuffix => {
     name = coin.split("=")[0];
     quantity = coin.split("=")[1];
     result[name] = parseFloat(quantity);
-    console.log(`coin: ${name}. quantity: ${quantity}`);
+    // console.log(`coin: ${name}. quantity: ${quantity}`);
   });
-  console.log(result);
+  // console.log(result);
   return result
 };
 const createCoinCards = coins => {
@@ -65,7 +65,10 @@ const buildCoin = (coin) => {
 console.log("TRIGGERED: alternativeMeApiCallService");
 
 // get data from URL
-
+let urlSuffix = getUrlSuffix(document.URL);
+console.log(urlSuffix);
+let coins = convertUrlSuffix(urlSuffix);
+console.log(coins);
 
 // make API call
 alternativeMeApiCall();
