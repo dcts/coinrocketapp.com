@@ -1,0 +1,7 @@
+@media (min-width:961px)  {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .container-main {
+    /*box-shadow: 0 0 3px rgb(100,100,100);
+    border-radius: 10px;*/
+  }
+}

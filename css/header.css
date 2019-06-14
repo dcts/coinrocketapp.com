@@ -4,9 +4,10 @@
   color: #525252;
   /*border: 1px solid #666;*/
   height: 135px;
-  left: 0;
+  /*left: 0;*/
   position: fixed;
   width: 100%;
+  max-width: 400px;
   top: 0;
   border-bottom-right-radius: 21px;
   border-bottom-left-radius: 21px;
