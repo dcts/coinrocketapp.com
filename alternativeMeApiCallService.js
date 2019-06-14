@@ -3,26 +3,16 @@ const getUrlSuffix = url => {
   let suffix = url.split("?")[1];
   return suffix;
 };
-// converts params string to object
+// converts params string to userPortfolio object
 const convertUrlSuffix = urlSuffix => {
   let coins = urlSuffix.split("&");
-  console.log(coins);
-  console.log(coins[0]);
-  result = {};
+  let result = {};
   coins.forEach(coin => {
     name = coin.split("=")[0];
     quantity = coin.split("=")[1];
     result[name] = parseFloat(quantity);
-    // console.log(`coin: ${name}. quantity: ${quantity}`);
   });
-  // console.log(result);
   return result
-};
-const createCoinCards = coins => {
-
-};
-const createCoinCard = coin => {
-
 };
 
 
@@ -39,6 +29,7 @@ const alternativeMeApiCall = () => {
   .then(function(result) {
     let coins = Object.values(result.data);
     coins = coins.map(coin => buildCoin(coin));
+    createCoinCards(coins);
   })
   .catch(function(error){
     console.log(JSON.stringify(error));
@@ -60,20 +51,82 @@ const buildCoin = (coin) => {
 
 
 
+// BUILD CARDS -----------------------------------------------------------------
+const createCoinCards = (coins) => {
+  console.log("user portfolio working:");
+  console.log(userPortfolio);
+  // for each userPortfolio -> find data from fetched coins array
+  userPortfolio.forEach((userCoin) => {
+    // create card
+    const coinCard = createCoinCard(userCoin, coins);
+    // append card to container
+
+  });
+
+
+};
+const createCoinCard = (userCoin, coins) => {
+  console.log(`userCoin: ${userCoin}`);
+  // coins.find((element) => {
+  //   return element.symbol === userCoin.;
+  // });
+  // console.log(`Coin: ${userCoin.name}`);
+
+  // <div class="coin-card">
+  //   <div class="icon">
+  //     <div class="icon-flex">
+  //       <img src="images/btc.svg" alt="">
+  //       <div class="percentage">74%</div>
+  //     </div>
+  //   </div>
+  //   <div class="coin-info">
+  //     <p class="coin-name">Bitcoin</p>
+  //     <p class="coin-price">7'256.20 €</p>
+  //   </div>
+  //   <div class="holdings-info">
+  //     <p class="holdings-value">36'281.20 €</p>
+  //     <p class="holdings-amount">5 BTC</p>
+  //   </div>
+  // </div>
+
+  // create coin-card div
+
+  // create icon div
+  //   create icon-flex div
+  //     create img
+  //     create percentage div
+
+  // create coin-info div
+  //   create coin-name p
+  //   create coin-price p
+
+  // create holdings-info div
+  //   create holding-value p
+  //   create holding-amount p
+
+  // append
+};
+
+
+
+
+
+
 // SCRIPT START ----------------------------------------------------------------
 // Say Hello
 console.log("TRIGGERED: alternativeMeApiCallService");
 
+// load needed DOM elements
+const coinCardsContainer = document.querySelector('.coin-cards-container');
+
 // get data from URL
 let urlSuffix = getUrlSuffix(document.URL);
-console.log(urlSuffix);
-let coins = convertUrlSuffix(urlSuffix);
-console.log(coins);
+let userPortfolio = convertUrlSuffix(urlSuffix);
+console.log(userPortfolio);
 
 // make API call
 alternativeMeApiCall();
 
-// load needed DOM elements
 
 
 
