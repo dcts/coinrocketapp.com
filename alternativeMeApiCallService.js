@@ -22,16 +22,20 @@ const convertUrlSuffix = urlSuffix => {
 // API CALL --------------------------------------------------------------------
 const alternativeMeApiCall = () => {
   console.log("...starting api call");
-  const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
-  fetch(proxyurl + url)
+  // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  // const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
+  const url = 'http://127.0.0.1:8080/crypto-mockup-data.json'; // FOR DEVELOPMENT
+  fetch(url)
   .then((resp) => resp.json())
   .then(function(result) {
     let coins = Object.values(result.data);
     coins = coins.map(coin => buildCoin(coin));
+    console.log("coins loaded:");
+    console.log(coins);
     createCoinCards(coins);
   })
   .catch(function(error){
+    console.log("catching...");
     console.log(JSON.stringify(error));
   });
 }
@@ -56,20 +60,19 @@ const createCoinCards = (coins) => {
   console.log("user portfolio working:");
   console.log(userPortfolio);
   // for each userPortfolio -> find data from fetched coins array
-  userPortfolio.forEach((userCoin) => {
-    // create card
-    const coinCard = createCoinCard(userCoin, coins);
-    // append card to container
+  // userPortfolio.forEach((userCoin) => {
+  //   // create card
+  //   console.log(userCoin);
+  //   const coinCard = createCoinCard(userCoin, coins);
+  //   // append card to container
 
-  });
-
-
+  // });
 };
 const createCoinCard = (userCoin, coins) => {
   console.log(`userCoin: ${userCoin}`);
-  // coins.find((element) => {
-  //   return element.symbol === userCoin.;
-  // });
+  coins.find((element) => {
+    // return element.symbol === userCoin.;
+  });
   // console.log(`Coin: ${userCoin.name}`);
 
   // <div class="coin-card">
@@ -116,13 +119,12 @@ const createCoinCard = (userCoin, coins) => {
 // Say Hello
 console.log("TRIGGERED: alternativeMeApiCallService");
 
-// load needed DOM elements
-const coinCardsContainer = document.querySelector('.coin-cards-container');
+// // load needed DOM elements
+// const coinCardsContainer = document.querySelector('.coin-cards-container');
 
-// get data from URL
+// // get data from URL
 let urlSuffix = getUrlSuffix(document.URL);
 let userPortfolio = convertUrlSuffix(urlSuffix);
-console.log(userPortfolio);
 
 // make API call
 alternativeMeApiCall();
