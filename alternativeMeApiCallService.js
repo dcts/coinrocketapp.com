@@ -218,4 +218,4 @@ let userPortfolio = convertUrlSuffix(urlSuffix);
 alternativeMeApiCall();
 
 // update portfolio value
-portfolioValue.innerText = `Portfolio Value: ${12000} $`
+portfolioValue.innerText = `${"12'230.40"} $`

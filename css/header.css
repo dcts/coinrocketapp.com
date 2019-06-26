@@ -1,27 +1,42 @@
 .header {
   background: #525252;
   background: white;
+  background: slateblue;
+  background: #4f5d73;
   color: #525252;
-  /*border: 1px solid #666;*/
+  color: white;
   height: 135px;
-  /*left: 0;*/
-  position: fixed;
   width: 100%;
   max-width: 400px;
-  top: 0;
+  position: fixed;
   border-bottom-right-radius: 21px;
   border-bottom-left-radius: 21px;
   box-shadow: 0 0 13px rgba(0,0,0,0.3);
   z-index: 2;
 }
 
-.header > h1 {
-  margin: 20px;
+.header h1, .header p {
+  margin: 0;
+  margin-left: 29px;
 }
-.header > p {
-  margin: 20px;
+.header h1 {
+  margin-top: 16px;
+  margin-bottom: 10px;
 }
-
+p#portfolio-value-label {
+  font-size: 12px;
+  font-weight: 400;
+}
+p#portfolio-value {
+  font-size: 24px;
+  font-weight: 600;
+}
+img.logo {
+  width: 100px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
 /* THE CONTENT BEHIND THE STICKY HEADER */
 /* ...pull to refresh... */
 /* ...needs same height as the header! */
@@ -30,5 +45,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /*border: 1px solid red;*/
 }
