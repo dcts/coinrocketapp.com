@@ -14,7 +14,7 @@ The app is in the making. Its a cryptocurrency portfolio tracker designed for mo
 
 by dcts / v0.0
 
-# ToDo List / Bugs (in development)
+### ToDo List / Bugs (in development)
 - [ ] Total Portfolio Value is not working (hardcoded)
 - [ ] refactor card creatiion code
 - [ ] landing page where user can input his holdings and gets redirected to his portfolio link
@@ -23,6 +23,6 @@ by dcts / v0.0
 - [ ] responsiveness: designs for tablets and desktop usage
 - [ ] support for different currencies (€ and $)
 
-# Contribute
+### Contribute
 
 if you want to contribute in any way, feel free to tackle a point from the above todo list and create a pull request! 
