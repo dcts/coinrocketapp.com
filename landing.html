@@ -5,29 +5,64 @@
   <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 <body>
+  <div class="header-container">
+    <img class="header" src="images/banner.png" alt="">
+  </div>
+  <div class="text"></div>
+  <h1>Coin Rocket</h1>
+  <h2>worlds fastest crypto portfolio tracker - no download, no login, fast loadtimes</h2>
 
+  <a id="bttn-start" href="">track portfolio</a>
 
-<div class="header-container">
-  <img class="header" src="images/banner.png" alt="">
-</div>
-<div class="text"></div>
-<h1>Coin Rocket Landing</h1>
-<h2>worlds fastest crypto portfolio tracker - no download, no login, fast loadtimes</h2>
+  <!-- <input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
+  <input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
+  <input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
+  <input id="tf-eth" class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
+  <input id="rb-holo" type="radio" name="holo" value="holo">Holochain
+  <input id="tf-holo" class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
+  <input id="rb-iota" type="radio" name="iota" value="iota">IOTA
+  <input id="tf-iota" class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
+  <input id="rb-xmr" type="radio" name="xmr" value="xmr">Monero
+  <input id="tf-xmr" class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
+  <button id="generate-pf" onclick="redirectToPortfolioGenerator();">GO TO MY PORTFOLIO!</button><br>
+  <button id="api-call" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
+  <hr> -->
+</body>
+</html>
 
-<!-- <input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
-<input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
-<input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
-<input id="tf-eth" class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
-<input id="rb-holo" type="radio" name="holo" value="holo">Holochain
-<input id="tf-holo" class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
-<input id="rb-iota" type="radio" name="iota" value="iota">IOTA
-<input id="tf-iota" class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
-<input id="rb-xmr" type="radio" name="xmr" value="xmr">Monero
-<input id="tf-xmr" class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
-<button id="generate-pf" onclick="redirectToPortfolioGenerator();">GO TO MY PORTFOLIO!</button><br>
-<button id="api-call" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
-<hr> -->
+<style>
+  #bttn-start {
+    text-decoration: none;
+    background-color: #223046;
+    background-color: #486080;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 50px;
+    transition: all 0.1s ease;
+  }
+  #bttn-start:hover {
+    text-decoration: none;
+    background-color: #486080;
+    background-color: #223046;
+    padding: 15px 32px;
+    color: white;
+    border-radius: 50px;
+  }
 
+  .header-container {
+    position: relative;
+    overflow: hidden;
+  }
+  img.header {
+    width: 100vw;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: all 5s linear;
+  }
+  img.header:hover {
+    transform: rotate(360deg);
+  }
+</style>
 
 
 <script type="text/javascript">
@@ -55,22 +90,3 @@
 //   }
   // self.location = `SIMPL/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
 </script>
-
-</body>
-</html>
-
-<style>
-  .header-container {
-    position: relative;
-    overflow: hidden;
-  }
-  img.header {
-    width: 100vw;
-    max-width: 400px;
-    margin: 0 auto;
-    transition: all 5s linear;
-  }
-  img.header:hover {
-    transform: rotate(360deg);
-  }
-</style>
