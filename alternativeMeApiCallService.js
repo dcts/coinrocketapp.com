@@ -40,19 +40,19 @@ const convertUrlSuffix = urlSuffix => {
 
 // API CALL --------------------------------------------------------------------
 const alternativeMeApiCall = () => {
-  console.log("...starting api call");
-  const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
-  fetch(proxyurl + url)
+  // console.log("...starting api call");
+  // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  // const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
+  // fetch(proxyurl + url)
   // FOR DEVELOPMENT
-  // const url = window.location.href.split(':8080')[0] + ':8080/crypto-mockup-data.json';
-  // fetch(url)
+  console.log("...starting (fake) development api call");
+  const url = window.location.href.split(':8080')[0] + ':8080/crypto-mockup-data.json';
+  fetch(url)
   .then((resp) => resp.json())
   .then(function(result) {
     let coins = Object.values(result.data);
     coins = coins.map(coin => buildCoin(coin));
     console.log("coins loaded:");
-    console.log(coins);
     createCoinCards(coins);
     computePortfolioValue(coins);
   })
@@ -73,12 +73,9 @@ const buildCoin = (coin) => {
   }
 };
 const computePortfolioValue = (coins) => {
-  console.log("HI");
-  console.log(coins);
-  console.log(userPortfolio);
   let portfolioValue = 0;
   userPortfolio.forEach((userCoin) => {
-    console.log(userCoin);
+    // console.log(userCoin);
   });
 };
 
@@ -102,11 +99,8 @@ const normalizePrice = (price) => {
   }
 };
 const createCoinCards = (coins) => {
-  console.log("user portfolio working:");
-  console.log(userPortfolio);
   // for each userPortfolio -> find data from fetched coins array
   userPortfolio.forEach((userCoin) => {
-    console.log(userCoin);
     // create card
     const coinCard = createCoinCard(userCoin, coins);
     // append card to container
@@ -114,7 +108,6 @@ const createCoinCards = (coins) => {
   // });
 };
 const createCoinCard = (userCoin, coins) => {
-  console.log(`userCoin: ${userCoin.quantity} ${userCoin.name}`);
   let target = coins.find((element) => {
     return element.symbol === userCoin.name;
   });
