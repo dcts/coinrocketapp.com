@@ -38,7 +38,7 @@ const alternativeMeApiCall = () => {
   .then(function(result) {
     allCoins = Object.values(result.data);
     allCoins = allCoins.map(coin => buildCoin(coin));
-    portfolioValue.innerText = normalizeValue(computePortfolioValue());
+    portfolioValue.innerText = `${normalizeValue(computePortfolioValue())} $`;
     buildCoinCards(allCoins);
   })
   .catch(function(error){
