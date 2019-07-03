@@ -52,9 +52,8 @@ const alternativeMeApiCall = () => {
   .then(function(result) {
     allCoins = Object.values(result.data);
     allCoins = allCoins.map(coin => buildCoin(coin));
-    createCoinCards(allCoins);
-    // update portfolio value
     portfolioValue.innerText = normalizeValue(computePortfolioValue());
+    buildCoinCards(allCoins);
   })
   .catch(function(error){
     console.log("catching...");
@@ -73,12 +72,11 @@ const buildCoin = (coin) => {
   }
 };
 const computePortfolioValue = () => {
-  let portfolioValue = 0;
   userPortfolio.forEach((userCoin) => {
     let targetCoin = allCoins.find(item => item.symbol === userCoin.name);
-    portfolioValue += userCoin.quantity * targetCoin.price;
+    portfolioValueFloat += userCoin.quantity * targetCoin.price;
   });
-  return portfolioValue;
+  return portfolioValueFloat;
 };
 
 
@@ -88,6 +86,9 @@ const computePortfolioValue = () => {
 // BUILD CARDS -----------------------------------------------------------------
 const normalizeValue = (totalValue) => {
   return totalValue.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'")
+};
+const normalizePercentage = (val) => {
+  return Math.round(val);
 };
 const normalizePrice = (price) => {
   if (price < 0.01) {
@@ -100,16 +101,16 @@ const normalizePrice = (price) => {
     return price.toFixed(2)
   }
 };
-const createCoinCards = (coins) => {
+const buildCoinCards = (coins) => {
   // for each userPortfolio -> find data from fetched coins array
   userPortfolio.forEach((userCoin) => {
     // create card
-    const coinCard = createCoinCard(userCoin, coins);
+    const coinCard = buildCoinCard(userCoin, coins);
     // append card to container
   });
   // });
 };
-const createCoinCard = (userCoin, coins) => {
+const buildCoinCard = (userCoin, coins) => {
   let target = coins.find((element) => {
     return element.symbol === userCoin.name;
   });
@@ -148,7 +149,8 @@ const createCoinCard = (userCoin, coins) => {
   //     create percentage div
   const percentage = document.createElement('div');
   percentage.classList.add("percentage");
-  percentage.innerText = `${Math.floor(Math.random()*80)}%`;
+  console.log((target.price * userCoin.quantity));
+  percentage.innerText = `${normalizePercentage(target.price * 100 * userCoin.quantity / portfolioValueFloat)}%`;
 
   //----------------------
   // create coin-info div
@@ -209,6 +211,7 @@ const portfolioValue = document.getElementById('portfolio-value');
 let urlSuffix = getUrlSuffix(document.URL);
 let userPortfolio = convertUrlSuffix(urlSuffix);
 let allCoins;
+let portfolioValueFloat = 0.0;
 
 // make API call
 alternativeMeApiCall();
