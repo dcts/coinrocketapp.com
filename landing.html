@@ -2,18 +2,23 @@
 <html>
 <head>
   <title>landing page</title>
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/basic-style.css">
 </head>
 <body>
-  <div class="header-container">
-    <img class="header" src="images/banner.png" alt="">
+  <div class="container-main">
+
+    <div class="header-container">
+      <img class="header" src="images/banner.png" alt="">
+    </div>
+    <div class="flex justify-center flex-column center text">
+      <h1>Coin Rocket</h1>
+      <h3>worlds fastest crypto portfolio tracker</h3>
+    </div>
+    <div class="flex justify-center">
+      <a id="bttn-start" href="/">track portfolio</a>
+    </div>
+
   </div>
-  <div class="text"></div>
-  <h1>Coin Rocket</h1>
-  <h2>worlds fastest crypto portfolio tracker - no download, no login, fast loadtimes</h2>
-
-  <a id="bttn-start" href="">track portfolio</a>
-
   <!-- <input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
   <input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
   <input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
@@ -33,22 +38,20 @@
 <style>
   #bttn-start {
     text-decoration: none;
-    background-color: #223046;
     background-color: #486080;
     color: white;
     padding: 13px 28px;
+    margin: 20px;
     border-radius: 50px;
     transition: all 0.1s ease;
   }
   #bttn-start:hover {
     text-decoration: none;
-    background-color: #486080;
     background-color: #223046;
     padding: 15px 32px;
-    color: white;
-    border-radius: 50px;
+    margin: 18px;
+    /*font-weight: bold;*/
   }
-
   .header-container {
     position: relative;
     overflow: hidden;
@@ -61,6 +64,11 @@
   }
   img.header:hover {
     transform: rotate(360deg);
+  }
+  .text > h1, h3{
+    margin-top: 0;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 </style>
 
