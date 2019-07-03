@@ -9,9 +9,13 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   margin: 0 auto;
 }
-
 h1 {
   font-weight: 600;
+}
+.container-main {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f9fbfd;
 }
 
 .center {
@@ -20,12 +24,6 @@ h1 {
 .justify {
   text-align: justify;
 }
-
-.container-main {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
 .flex {
   display: flex;
 }

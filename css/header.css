@@ -3,6 +3,7 @@
   background: white;
   background: slateblue;
   background: #4f5d73;
+  background: #293c58;
   color: #525252;
   color: white;
   height: 135px;
@@ -36,6 +37,13 @@ img.logo {
   position: absolute;
   top: 16px;
   right: 16px;
+  transform: rotate(-45deg);
+  transition: all 1s ease;
+}
+img.logo:hover {
+  transform: rotate(-180deg);
+  top: -200px;
+  right: -100px;
 }
 /* THE CONTENT BEHIND THE STICKY HEADER */
 /* ...pull to refresh... */
