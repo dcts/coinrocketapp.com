@@ -50,11 +50,11 @@ const alternativeMeApiCall = () => {
   fetch(url)
   .then((resp) => resp.json())
   .then(function(result) {
-    let coins = Object.values(result.data);
-    coins = coins.map(coin => buildCoin(coin));
-    console.log("coins loaded:");
-    createCoinCards(coins);
-    computePortfolioValue(coins);
+    allCoins = Object.values(result.data);
+    allCoins = allCoins.map(coin => buildCoin(coin));
+    createCoinCards(allCoins);
+    // update portfolio value
+    portfolioValue.innerText = normalizeValue(computePortfolioValue());
   })
   .catch(function(error){
     console.log("catching...");
@@ -72,11 +72,13 @@ const buildCoin = (coin) => {
     change24h: coin.quotes["USD"].percentage_change_24h
   }
 };
-const computePortfolioValue = (coins) => {
+const computePortfolioValue = () => {
   let portfolioValue = 0;
   userPortfolio.forEach((userCoin) => {
-    // console.log(userCoin);
+    let targetCoin = allCoins.find(item => item.symbol === userCoin.name);
+    portfolioValue += userCoin.quantity * targetCoin.price;
   });
+  return portfolioValue;
 };
 
 
@@ -165,11 +167,11 @@ const createCoinCard = (userCoin, coins) => {
   // create holdings-info div
   const holdingsInfo = document.createElement('div');
   holdingsInfo.classList.add("holdings-info");
-  //   create holding-value p
+  // create holding-value p
   const holdingsValue = document.createElement('p');
   holdingsValue.classList.add("holdings-value");
   holdingsValue.innerText = `${normalizeValue(target.price * userCoin.quantity)} $`;
-  //   create holding-amount p
+  // create holding-amount p
   const holdingsAmount = document.createElement('p');
   holdingsAmount.classList.add("holdings-amount");
   holdingsAmount.innerText = `${userCoin.quantity} ${target.symbol}`;
@@ -206,9 +208,8 @@ const portfolioValue = document.getElementById('portfolio-value');
 // // get data from URL
 let urlSuffix = getUrlSuffix(document.URL);
 let userPortfolio = convertUrlSuffix(urlSuffix);
+let allCoins;
 
 // make API call
 alternativeMeApiCall();
 
-// update portfolio value
-portfolioValue.innerText = `${"12'230.40"} $`
