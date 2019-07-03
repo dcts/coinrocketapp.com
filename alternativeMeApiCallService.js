@@ -26,14 +26,14 @@ const convertUrlSuffix = urlSuffix => {
 
 // API CALL --------------------------------------------------------------------
 const alternativeMeApiCall = () => {
-  // console.log("...starting api call");
-  // const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  // const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
-  // fetch(proxyurl + url)
+  console.log("...starting api call");
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  const url = 'https://api.alternative.me/v2/ticker/?limit=1000';
+  fetch(proxyurl + url)
   // FOR DEVELOPMENT
-  console.log("...starting (fake) development api call");
-  const url = window.location.href.split(':8080')[0] + ':8080/crypto-mockup-data.json';
-  fetch(url)
+  // console.log("...starting (fake) development api call");
+  // const url = window.location.href.split(':8080')[0] + ':8080/crypto-mockup-data.json';
+  // fetch(url)
   .then((resp) => resp.json())
   .then(function(result) {
     allCoins = Object.values(result.data);
