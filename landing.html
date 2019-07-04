@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>landing page</title>
+  <link rel="stylesheet" type="text/css" href="css/basic-style.css">
+</head>
+<body>
+  <div class="container-main">
+
+    <div class="header-container">
+      <img class="header" src="images/banner.png" alt="">
+    </div>
+    <div class="flex justify-center flex-column center text">
+      <h1>Coin Rocket</h1>
+      <h3>worlds fastest crypto portfolio tracker</h3>
+    </div>
+    <div class="flex justify-center">
+      <a id="bttn-start" href="/">track portfolio</a>
+    </div>
+
+  </div>
+  <!-- <input id="rb-btc" type="radio" name="btc" value="btc">Bitcoin
+  <input id="tf-btc" class="textfield-quantity" type="text" name="btc-textfield" value="0"><br>
+  <input id="rb-eth" type="radio" name="eth" value="eth">Ethereum
+  <input id="tf-eth" class="textfield-quantity" type="text" name="eth-textfield" value="0"><br>
+  <input id="rb-holo" type="radio" name="holo" value="holo">Holochain
+  <input id="tf-holo" class="textfield-quantity" type="text" name="holo-textfield" value="0"><br>
+  <input id="rb-iota" type="radio" name="iota" value="iota">IOTA
+  <input id="tf-iota" class="textfield-quantity" type="text" name="iota-textfield" value="0"><br>
+  <input id="rb-xmr" type="radio" name="xmr" value="xmr">Monero
+  <input id="tf-xmr" class="textfield-quantity" type="text" name="xmr-textfield" value="0"><br>
+  <button id="generate-pf" onclick="redirectToPortfolioGenerator();">GO TO MY PORTFOLIO!</button><br>
+  <button id="api-call" onclick="location.href = 'api/index.html';">GET ALL CURRENCIES VIA API CALL</button>
+  <hr> -->
+</body>
+</html>
+
+<style>
+  #bttn-start {
+    text-decoration: none;
+    background-color: #486080;
+    color: white;
+    padding: 13px 28px;
+    margin: 20px;
+    border-radius: 50px;
+    transition: all 0.1s ease;
+  }
+  #bttn-start:hover {
+    text-decoration: none;
+    background-color: #223046;
+    padding: 15px 32px;
+    margin: 18px;
+  }
+  .header-container {
+    position: relative;
+    overflow: hidden;
+  }
+  img.header {
+    width: 100vw;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: all 5s linear;
+  }
+  img.header:hover {
+    transform: rotate(360deg);
+  }
+  .text > h1, h3{
+    margin-top: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+</style>
+
+
+<script type="text/javascript">
+// function redirectToPortfolioGenerator() {
+//   let urlSuffix = "";
+//   if (document.getElementById('rb-btc').checked) {
+//     let append = `BTC=${document.getElementById('tf-btc').value};`;
+//     urlSuffix += append;
+//   }
+//   if (document.getElementById('rb-eth').checked) {
+//     let append = `ETH=${document.getElementById('tf-eth').value};`;
+//     urlSuffix += append;
+//   }
+//   if (document.getElementById('rb-holo').checked) {
+//     let append = `HOLO=${document.getElementById('tf-holo').value};`;
+//     urlSuffix += append;
+//   }
+//   if (document.getElementById('rb-iota').checked) {
+//     let append = `IOTA=${document.getElementById('tf-iota').value};`;
+//     urlSuffix += append;
+//   }
+//   if (document.getElementById('rb-xmr').checked) {
+//     let append = `XMR=${document.getElementById('tf-xmr').value};`;
+//     urlSuffix += append;
+//   }
+  // self.location = `SIMPL/portfolio-generator/index.html?${urlSuffix.substr(0, urlSuffix.length-1)}`;
+</script>
