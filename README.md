@@ -31,4 +31,4 @@ by dcts / v0.0
 
 ### Contribute
 
-if you want to contribute in any way, feel free to tackle a point from the above todo list and create a pull request! You can also write me if you want to collaborate (thomas.starzynski@unibas.ch), I'd love to work on this.
+if you want to contribute in any way, feel free to tackle a point from the above todo list and create a pull request! You can also write me if you want to collaborate (thomas.starzynski@unibas.ch), I'd love to work on this more intensively!
