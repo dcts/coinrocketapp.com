@@ -28,6 +28,7 @@ by dcts / v0.0
 - [ ] sortableJS -> make cards sortable and adapt url (if such a functionality is possible) -> indicate to user that link has changes
 - [ ] store user settings tied to link in a database maybe? That way the view becomes customizable without being forced to create an account and log in. Linktoken = "fake authentication"! 
 - [ ] (dark mode)
+- [ ] write an own deterministic URL shortener to avoid url's that are extremely long. Store them as key-value pairs in the database! Interesting [YOUTUBE TUTORIAL by Traversy Media](https://youtu.be/Z57566JBaZQ).
 
 ### Contribute
 
