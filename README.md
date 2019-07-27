@@ -32,4 +32,4 @@ by dcts / v0.0
 
 ### Contribute
 
-if you want to contribute in any way, feel free to tackle a point from the above todo list and create a pull request! You can also write me if you want to collaborate (thomas.starzynski@unibas.ch), I'd love to work on this more intensively! Crypto App needs to be ready for the next Crypto Bullrun when the market get flooded with shitcoins.
+if you want to contribute in any way, feel free write me (thomas.starzynski@unibas.ch), I'd love to work on this more intensively! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
