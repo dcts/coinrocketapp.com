@@ -55,7 +55,49 @@
 
   <!-- LOAD ALL SCRIPTS -->
   <!-- <script src="alternativeMeApiCallService.js"></script> -->
-  <script src="connectFirebase.js"></script>
+  <!-- <script src="connectFirebase.js"></script> -->
+
+
+  <!-- FIRESTORE CONNECTION -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+
+  <script>
+    console.log("ADDING FIREBASE");
+
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA4ODjJojm8WEu1tIQeisg7TFTKtV7HhCY",
+      authDomain: "coinrocketapp.firebaseapp.com",
+      databaseURL: "https://coinrocketapp.firebaseio.com",
+      projectId: "coinrocketapp",
+      storageBucket: "coinrocketapp.appspot.com",
+      messagingSenderId: "854571064111",
+      appId: "1:854571064111:web:3d25cb49cbcaf869"
+    };
+    // Initialize Firebase
+    firebase.initializeApp({
+      apiKey: "AIzaSyA4ODjJojm8WEu1tIQeisg7TFTKtV7HhCY",
+      authDomain: "coinrocketapp.firebaseapp.com",
+      projectId: "coinrocketapp",
+    });
+
+    var db = firebase.firestore();
+
+    db.collection("users").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+      });
+    });
+
+
+  </script>
+
+
+
+
+
 </body>
 </html>
 
