@@ -51,8 +51,8 @@ const getUserPortfolios = userId => {
 const loadAllCoins = () => {
   db.collection("coins").doc("all").get().then(doc => {
     if (doc.exists) {
-      updatedAt = doc.data().updatedAt.toDate().toLocaleString();
       allCoins = doc.data();
+      allCoins.updatedAt = allCoins.updatedAt.toDate().toLocaleString();
     } else {
       console.log("No such document!");
     }
@@ -65,33 +65,24 @@ const getCoinData = symbol => {
   return allCoins[symbol];
 };
 
-const getAllUsers = () => {
-  const results = {};
-  db.collection("users").get().then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-      let data = doc.data();
-      // data["id"] = doc.id;
-      results[doc.id] = data;
-    });
-  });
-  return results;
+// const getAllUsers = () => {
+//   const results = {};
+//   db.collection("users").get().then(querySnapshot => {
+//     querySnapshot.forEach(doc => {
+//       let data = doc.data();
+//       // data["id"] = doc.id;
+//       results[doc.id] = data;
+//     });
+//   });
+//   return results;
+// };
+
+const getUserId = () => {
+  return document.URL.split("/?user=")[1];
 };
 
 const getUser = userId => {
-  return db.collection("users").doc(userId).get().then(snap => {
+  return db.collection("users").doc(getUserId()).get().then(snap => {
     return snap.data();
   })
 };
-
-let allCoins;
-let userPfs;
-let userPf;
-let updatedAt;
-getUser("AyC0xdFfGljDuSx6NhHH").then(data => {
-  userPfs = data;
-  userPf = userPfs[userPfs.portfolioOrdering[0]]
-  for (let [key, value] of Object.entries(userPf)) {
-    console.log(key, value);
-  }
-});
-loadAllCoins();
