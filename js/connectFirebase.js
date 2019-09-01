@@ -50,20 +50,9 @@ const getUserPortfolios = userId => {
 
 const loadAllCoins = () => {
   db.collection("coins").doc("all").get().then(doc => {
-    console.log(typeof(doc));
-    console.log(doc);
-    console.log(doc.ref);
     if (doc.exists) {
-      console.log(doc.data());  // -> undefined
-      console.log(doc.createTime);  // -> undefined
-      console.log(doc.updateTime);  // -> undefined
-      console.log(doc.readTime);    // -> undefined
-      console.log(doc.exists);      // -> true
-      console.log(doc.id);          // -> "all"
-      console.log(`doc-ref : ${doc.ref}`);     // -> doc-ref : [object Object]
-      console.log(`doc-data: ${doc.data()}`);  // -> doc-data: [object Object]
+      updatedAt = doc.data().updatedAt.toDate().toLocaleString();
       allCoins = doc.data();
-      allCoins["updatedAt"] = allCoins["updatedAt"].toDate().toLocaleString();
     } else {
       console.log("No such document!");
     }
@@ -72,7 +61,7 @@ const loadAllCoins = () => {
   });
 };
 
-const getCoinData = (symbol) => {
+const getCoinData = symbol => {
   return allCoins[symbol];
 };
 
@@ -88,6 +77,21 @@ const getAllUsers = () => {
   return results;
 };
 
+const getUser = userId => {
+  return db.collection("users").doc(userId).get().then(snap => {
+    return snap.data();
+  })
+};
 
 let allCoins;
+let userPfs;
+let userPf;
+let updatedAt;
+getUser("AyC0xdFfGljDuSx6NhHH").then(data => {
+  userPfs = data;
+  userPf = userPfs[userPfs.portfolioOrdering[0]]
+  for (let [key, value] of Object.entries(userPf)) {
+    console.log(key, value);
+  }
+});
 loadAllCoins();
