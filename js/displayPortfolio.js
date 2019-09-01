@@ -98,6 +98,7 @@ loadAllCoins().then(() => {
       userPfs = data;
       userPf = userPfs[userPfs.portfolioOrdering[0]];
       portfolioValueFloat = computePortfolioValue(userPf, allCoins);
+      document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
       buildCoinCards(userPf, allCoins);
     });
   // OLD USECASE SUPPORTED AS WELL
@@ -110,7 +111,6 @@ loadAllCoins().then(() => {
     console.log(allCoins);
     portfolioValueFloat = computePortfolioValue(userPf, allCoins);
     document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
-    console.log(portfolioValueFloat);
     buildCoinCards(userPf, allCoins);
   }
 });
