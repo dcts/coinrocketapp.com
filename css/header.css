@@ -6,23 +6,27 @@
   background: #293c58;
   color: #525252;
   color: white;
-  height: 135px;
+  height: 75px;
   width: 100%;
   max-width: 400px;
   position: fixed;
-  border-bottom-right-radius: 21px;
-  border-bottom-left-radius: 21px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
   box-shadow: 0 0 13px rgba(0,0,0,0.3);
   z-index: 2;
 }
 
-.header h1, .header p {
-  margin: 0;
-  margin-left: 29px;
+.header p {
+  margin: 0 auto;
+  /*margin-left: 79px;*/
+  /*margin-right: 29px;*/
+  text-align: center;
 }
 .header h1 {
   margin-top: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  /* margin-left: 34px; */
+  font-size: 31px;
 }
 p#portfolio-value-label {
   font-size: 12px;
@@ -32,24 +36,45 @@ p#portfolio-value {
   font-size: 24px;
   font-weight: 600;
 }
-img.logo {
-  width: 100px;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  transform: rotate(-45deg);
-  transition: all 1s ease;
+
+/*img.logo {
+  height: 75px;
 }
 img.logo:hover {
   transform: rotate(-180deg);
   top: -200px;
   right: -100px;
+}*/
+
+.overview {
+  margin-top: 11px;
 }
+
+/* MENU */
+.menu {
+  position: absolute;
+  left: 24px;
+  top: 26px;
+}
+.menu > div {
+  width: 22px;
+  height: 2px;
+  background-color: rgba(255,255,255,0.5);
+  margin: 4px 0;
+}
+/* CURRENCY */
+.currency {
+  position: absolute;
+  right: 22px;
+  top: 26px;
+  color: rgba(255,255,255,0.8);
+}
+
 /* THE CONTENT BEHIND THE STICKY HEADER */
 /* ...pull to refresh... */
 /* ...needs same height as the header! */
 .placeholder {
-  height: 135px;
+  height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
