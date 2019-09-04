@@ -1,10 +1,8 @@
 .coin-cards-container {
-  /*border: 2px solid red;*/
   margin-top: 20px;
 }
 
 .coin-card {
-  /*border: 2px solid green;*/
   height: 65px;
   display: flex;
   margin-left: 10px;
@@ -24,6 +22,7 @@
 .icon-flex > img {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 .icon-flex > .percentage {
   position: absolute;
@@ -39,12 +38,10 @@
   background:#000
 }
 .coin-info {
-  /*border: 2px solid red;*/
   width: 50%;
 }
 .coin-name {
   margin-top: 10px;
-  /*font-weight: bold;*/
   font-size: 18px;
   margin: 0;
   margin-top: 4px;
@@ -59,10 +56,8 @@
 
 .holdings-info {
   width: 30%;
-  /*border: 2px solid blue;*/
 }
 .holdings-value {
-  /*font-weight: bold;*/
   font-size: 16px;
   margin: 0;
   margin-top: 6px;
