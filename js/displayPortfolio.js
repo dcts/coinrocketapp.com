@@ -1,3 +1,54 @@
+/*
+ * GRAB COINDATA FROM FIREBASE
+ */
+const getUserPortfolios = userId => {
+  db.collection("users").doc(userId).get().then(doc => {
+    if (doc.exists) {
+      const x = doc.data();
+      console.log(x);
+      return doc.data();
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(error => {
+    console.log("Error getting document:", error);
+  });
+};
+
+const loadAllCoins = () => {
+  return db.collection("coins").doc("all").get().then(doc => {
+    if (doc.exists) {
+      allCoins = doc.data();
+      allCoins.updatedAt = allCoins.updatedAt.toDate().toLocaleString();
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(error => {
+    console.log("Error getting document:", error);
+  });
+};
+
+const getCoinData = symbol => {
+  return allCoins[symbol];
+};
+
+const getUserId = () => {
+  if (document.URL.split("/?user=").length === 2) {
+    return document.URL.split("/?user=")[1];
+  } else {
+    let urlSuffix = getUrlSuffix(document.URL);
+    let userPf = convertUrlSuffix(urlSuffix);
+    console.log("asdasdasd");
+    console.log(userPf);
+  }
+};
+
+const getUser = userId => {
+  return db.collection("users").doc(getUserId()).get().then(snap => {
+    return snap.data();
+  })
+};
+
 
 
 
