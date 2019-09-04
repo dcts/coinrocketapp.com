@@ -55,6 +55,7 @@ img.logo:hover {
   position: absolute;
   left: 24px;
   top: 26px;
+  cursor: pointer;
 }
 .menu > div {
   width: 22px;
