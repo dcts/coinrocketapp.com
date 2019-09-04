@@ -1,0 +1,59 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #2a3c57;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 200;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  padding-bottom: 0;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgba(255,255,255,0.6); /*#f1f1f1;*/
+  display: block;
+  transition: 0.3s;
+}
+.sidenav .pf-value {
+  padding: 0;
+  padding-left: 32px;
+  margin: 0;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  display: block;
+  transition: 0.3s;
+}
+.pf-group {
+  margin-top: 10px;
+}
+a {
+  cursor: pointer;
+}
+.sidenav a:hover {
+  color: white;
+}
+.sidenav a.selected {
+  font-weight: bold;
+  color: white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

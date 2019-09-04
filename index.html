@@ -13,12 +13,12 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/coin-cards.css">
   <link rel="stylesheet" href="css/media-queries.css">
+  <link rel="stylesheet" href="css/sidenav.css">
   <!-- @TODO -->
 
   <!-- LOAD FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet"> -->
-
   <!-- CARDS FACEBOOK / TWITTER / SOCIAL MEDIA ... when sharing -->
   <!-- @TODO -->
 
@@ -35,13 +35,23 @@
 
 </head>
 <body>
+
   <div class="container-main">
+  <!-- SIDENAVIGATION -->
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- WILL BE FILLED BY JS -->
+  </div>
 
     <div class="header">
-      <img src="images/rocket-2.svg" class="logo">
-      <h1 class="">Coin Rocket</h1>
-      <p id="portfolio-value-label">Portfolio Value</p>
-      <p id="portfolio-value"></p>
+      <div class="menu" onclick="openNav()"><div></div><div></div><div></div></div>
+      <div class="overview">
+        <p id="portfolio-value-label">Main Portolio</p>
+        <p id="portfolio-value"></p>
+      </div>
+      <!-- <h1 class="">Coin Rocket&nbsp</h1> -->
+      <!-- <img src="images/rocket-2.svg" class="logo"> -->
+      <div class="currency">USD</div>
     </div>
     <div class="placeholder">
       <p>Pull to refresh</p>
@@ -59,6 +69,7 @@
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+  <script src="js/sidenav.js"></script>
   <script src="js/connectFirebase.js"></script>
   <script src="js/grabUrl.js"></script>
   <script src="js/displayPortfolio.js"></script>

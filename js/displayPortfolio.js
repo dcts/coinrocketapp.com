@@ -131,7 +131,24 @@ const buildCoinCard  = (symbol, quantity, allCoins) => {
   document.querySelector('.coin-cards-container').insertAdjacentHTML("beforeend", innerHTML);
 };
 
+const orderPortfolios = (data) => {
+  let result = {};
+  data.portfolioOrdering.map(pfName => {
+    result[pfName] = data[pfName];
+    return result;
+  });
+  return result;
+};
 
+const addPfToSidenav = (name, value) => {
+  const innerHTML = `
+    <div class="pf-group">
+      <a>${name}</a>
+      <p class="pf-value">${normalizeValue(value)} $</p>
+    </div>
+  `;
+  document.getElementById('mySidenav').insertAdjacentHTML("beforeend", innerHTML);
+};
 
 // LOAD ALL COINS
 let allCoins;
@@ -146,11 +163,23 @@ loadAllCoins().then(() => {
   if (document.URL.split("/?user=").length === 2) {
     let userId = document.URL.split("/?user=")[1];
     getUser("AyC0xdFfGljDuSx6NhHH").then(data => {
-      userPfs = data;
-      userPf = userPfs[userPfs.portfolioOrdering[0]];
-      portfolioValueFloat = computePortfolioValue(userPf, allCoins);
-      document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
-      buildCoinCards(userPf, allCoins);
+      // get pf in correct ordering
+      userPfs = orderPortfolios(data);
+      // compute pfvalue for all pf and store inside pf object
+      let first = true;
+      for (const [key, value] of Object.entries(userPfs)) {
+        console.log(key, value);
+        portfolioValueFloat = computePortfolioValue(value, allCoins);
+        userPfs[key]["totalValue"] = portfolioValueFloat;
+        console.log(portfolioValueFloat);
+        addPfToSidenav(key, portfolioValueFloat);
+        if (first === true) {
+          document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
+          buildCoinCards(userPfs[key], allCoins);
+          first = false;
+        }
+      }
+
     });
   // OLD USECASE SUPPORTED AS WELL
   } else {
