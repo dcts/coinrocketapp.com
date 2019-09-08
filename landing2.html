@@ -26,44 +26,45 @@
         <div class="close-x pos-absolute flex justify-center align-center transparent">
           <p class="x">x</p>
         </div>
-        <input class="add-coin-input" type="input" value="" onfocus="focusAddCoinInput(this);" onblur="blurAddCoinInput(this);" placeholder="Search Coin">
+        <input class="add-coin-input" type="input" value="" onfocus="focusAddCoinInput(this);" onblur="blurAddCoinInput(this);" placeholder="Search Coins">
       </div>
     </div>
 
     <!-- COIN CARDS (RESULTS) -->
     <!-- full width -->
     <div class="coin-cards-container">
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
+        <!-- <div class="coin-card-selection-overlay"></div> -->
         <h3 class="coin-card-title">BTC</h3>
-        <img class="coin-logo" src="images/svg/color/btc.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/btc.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">ETH</h3>
-        <img class="coin-logo" src="images/svg/color/eth.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/eth.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">XRP</h3>
-        <img class="coin-logo" src="images/svg/color/xrp.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/xrp.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">XMR</h3>
-        <img class="coin-logo" src="images/svg/color/xmr.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/xmr.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">MIOTA</h3>
-        <img class="coin-logo" src="images/svg/color/miota.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/miota.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">HOT</h3>
-        <img class="coin-logo" src="images/svg/color/hot.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/hot.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">NEO</h3>
-        <img class="coin-logo" src="images/svg/color/neo.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/neo.svg" alt="">
       </div>
-      <div class="coin-card">
+      <div class="coin-card" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">EOS</h3>
-        <img class="coin-logo" src="images/svg/color/eos.svg" alt="">
+        <img class="coin-logo" src="images/svg/black/eos.svg" alt="">
       </div>
     </div>
 
@@ -102,6 +103,7 @@
     border-radius: 12px;
     box-shadow: 0 0 14px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: all 0.25s ease;
   }
   h3.coin-card-title {
     margin: 0;
@@ -109,10 +111,17 @@
     margin-bottom: 3px;
     text-align: center;
     color: black;
+    transition: all 0.25s ease;
   }
   img.coin-logo {
     width: 70px;
     height: 70px;
+  }
+  .coin-card-selected.coin-card {
+    background-color: rgba(0,128,8, 0.3);
+  }
+  .coin-card-selected h3 {
+    /*color: white;*/
   }
 
 
@@ -184,7 +193,7 @@
   };
 
   const blurAddCoinInput = (el) => {
-    el.placeholder = "Search Coin";
+    el.placeholder = "Search Coins";
   };
 
   const displayCloseBtnLogic = () => {
@@ -194,6 +203,19 @@
       closeX.classList.remove("transparent");
     }
   };
+
+  const cardOnclick = (el) => {
+    console.log(el);
+    if (el.classList.contains("coin-card-selected")) {
+      el.classList.remove("coin-card-selected");
+      // let src = el.querySelector("img").src;
+      // el.querySelector("img").src = src.replace("/white/", "/black/");
+    } else {
+      el.classList.add("coin-card-selected");
+      // let src = el.querySelector("img").src;
+      // el.querySelector("img").src = src.replace("/black/", "/white/");
+    }
+  }
 
   const loadCoins = () => {
     return ["0xbtc","2give","abt","act","actn","ada","add","adx","ae","aeon","aeur","agi","agrs","aion","amb","amp","ant","apex","appc","ardr","arg","ark","arn","ary","ast","atm","atom","audr","auto","aywa","bab","bat","bay","bcbc","bcc","bcd","bch","bcio","bcn","bco","bcpt","bdl","beam","bela","bix","blcn","blk","block","blz","bnb","bnt","bnty","booty","bos","bpt","bq","brd","bsd","bsv","btc","btcd","btch","btcp","btcz","btdx","btg","btm","bts","btt","btx","burst","call","cc","cdn","cdt","cenz","chain","chat","chips","cix","clam","cloak","cmm","cmt","cnd","cnx","cny","cob","colx","coqui","cred","crpt","crw","cs","ctr","ctxc","cvc","d","dai","dash","dat","data","dbc","dcn","dcr","deez","dent","dew","dgb","dgd","dlt","dnt","dock","doge","drgn","drop","dta","dth","dtr","ebst","eca","edg","edo","edoge","ela","elec","elf","elix","ella","emc","emc2","eng","enj","entrp","eon","eop","eos","eqli","equa","etc","eth","ethos","etn","etp","eur","evx","exmo","exp","fair","fct","fil","fjc","fldc","flo","fsn","ftc","fuel","fun","game","gas","gbp","gbx","gbyte","generic","gin","glxt","gmr","gno","gnt","gold","grc","grin","grs","gsc","gto","gup","gusd","gvt","gxs","gzr","hight","hodl","hot","hpb","hsr","ht","html","huc","hush","icn","icx","ignis","ilk","ink","ins","ion","iop","iost","iotx","iq","itc","jnt","jpy","kcs","kin","kmd","knc","krb","lbc","lend","link","lkk","loom","lpt","lrc","lsk","ltc","lun","maid","mana","mcap","mco","mda","mds","med","meetone","mft","miota","mith","mkr","mln","mnx","mnz","moac","mod","mona","msr","mth","mtl","music","mzc","nano","nas","nav","ncash","ndz","nebl","neo","neos","neu","nexo","ngc","nio","nlc2","nlg","nmc","npxs","nuls","nxs","nxt","oax","ok","omg","omni","ong","ont","oot","ost","ox","$pac","part","pasc","pasl","pax","pay","payx","pbt","pink","pirl","pivx","plr","poa","poe","polis","poly","pot","powr","ppc","ppp","ppt","pre","prl","pungo","pura","qash","qiwi","qlc","qrl","qsp","qtum","r","rads","rap","rcn","rdd","rdn","ren","rep","req","rhoc","ric","rise","rlc","rpx","rub","rvn","ryo","safe","salt","san","sbd","sberbank","sc","shift","sib","sky","slr","sls","smart","sngls","snm","snt","soc","spank","sphtx","srn","stak","start","steem","storj","storm","stq","strat","sub","sumo","sys","taas","tau","tbx","tel","ten","tern","tgch","theta","tix","tkn","tks","tnb","tnc","tnt","tomo","tpay","trig","trtl","trx","tusd","tzc","ubq","unity","usd","usdc","usdt","utk","veri","vet","via","vib","vibe","vivo","vrc","vrsc","vtc","vtho","wabi","wan","waves","wax","wgr","wicc","wings","wpr","wtc","x","xas","xbc","xbp","xby","xcp","xdn","xem","xin","xlm","xmcc","xmg","xmo","xmr","xmy","xp","xpa","xpm","xrp","xsg","xtz","xuc","xvc","xvg","xzc","yoyow","zcl","zec","zel","zen","zest","zil","zilla","zrx"];
@@ -215,6 +237,8 @@
   closeX.addEventListener("click", () => {
     addCoinInput.value = "";
   });
+  // click on userCards
+
 
 
 </script>
