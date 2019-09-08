@@ -10,6 +10,8 @@
   height: 113px;
   /*border: 2px solid red;*/
   background-color: white;
+  background-color: #1d283b;
+  background-color: black;
   display: inline-block;
   margin: 5px;
   margin-top: 10px;
@@ -24,6 +26,7 @@ h3.coin-card-title {
   margin-bottom: 3px;
   text-align: center;
   color: black;
+  color: white;
   transition: all 0.25s ease;
 }
 img.coin-logo {

@@ -46,6 +46,9 @@
 </html>
 
 <style>
+  body {
+    background-color: black;
+  }
 </style>
 
 
@@ -92,7 +95,7 @@
     return `
       <div class="coin-card" data-name="${str.toLowerCase()}" onclick="cardOnclick(this)">
         <h3 class="coin-card-title">${str.toUpperCase()}</h3>
-        <img class="coin-logo" src="images/svg/black/${str.toLowerCase()}.svg" alt="">
+        <img class="coin-logo" src="images/svg/white/${str.toLowerCase()}.svg" alt="">
       </div>
     `;
   };
