@@ -1,0 +1,17 @@
+/* MAIN */
+.container-main {
+  height: 100vh;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #f0f7ff;
+}
+.margin-l-r-cointainer {
+  margin-left: 45px;
+  margin-right: 45px;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 17px;
+  padding-top: 35px;
+}
