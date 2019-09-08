@@ -1,6 +1,6 @@
 /* MAIN */
 .container-main {
-  height: 100vh;
+  min-height: 100vh;
   max-width: 450px;
   margin: 0 auto;
   background-color: #f0f7ff;
