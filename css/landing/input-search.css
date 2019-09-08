@@ -20,7 +20,7 @@
 }
 .search-icon {
   top: 16px;
-  left: 21px;
+  left: 67px;
   width: 21px;
 }
 .close-x {
@@ -29,7 +29,7 @@
   width: 43px;
   height: 43px;
   top: 5px;
-  right: 14px;
+  right: 60px;
   border-radius: 50%;
   cursor: pointer;
   transition: opacity 1s ease;

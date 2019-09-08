@@ -15,59 +15,30 @@
 </head>
 <body>
   <div class="container-main">
+    <!-- HEADER -->
     <div class="margin-l-r-cointainer">
-
-      <!-- HEADER -->
       <div class="header flex justify-center flex-column center text">
         <h1>Coin Rocket</h1>
         <h3>worlds fastest crypto portfolio tracker</h3>
       </div>
+    </div>
 
-      <!-- USER INPUT -->
-      <div class="input-container flex justify-center pos-relative">
+    <!-- USER INPUT -->
+    <div class="sticky-searchbar">
+      <div class="input-container pos-relative flex justify-center">
+        <input class="add-coin-input" type="input" value="" onfocus="focusAddCoinInput(this);" onblur="blurAddCoinInput(this);" placeholder="Search Coins">
         <img class="search-icon pos-absolute" src="images/assets/search.svg" alt="">
         <div class="close-x pos-absolute flex justify-center align-center transparent">
           <p class="x">x</p>
         </div>
-        <input class="add-coin-input" type="input" value="" onfocus="focusAddCoinInput(this);" onblur="blurAddCoinInput(this);" placeholder="Search Coins">
+
       </div>
     </div>
 
     <!-- COIN CARDS (RESULTS) -->
     <!-- full width -->
     <div class="coin-cards-container">
-      <!-- <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">BTC</h3>
-        <img class="coin-logo" src="images/svg/black/btc.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">ETH</h3>
-        <img class="coin-logo" src="images/svg/black/eth.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">XRP</h3>
-        <img class="coin-logo" src="images/svg/black/xrp.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">XMR</h3>
-        <img class="coin-logo" src="images/svg/black/xmr.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">MIOTA</h3>
-        <img class="coin-logo" src="images/svg/black/miota.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">HOT</h3>
-        <img class="coin-logo" src="images/svg/black/hot.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">NEO</h3>
-        <img class="coin-logo" src="images/svg/black/neo.svg" alt="">
-      </div>
-      <div class="coin-card" onclick="cardOnclick(this)">
-        <h3 class="coin-card-title">EOS</h3>
-        <img class="coin-logo" src="images/svg/black/eos.svg" alt="">
-      </div> -->
+      <!-- WILL BE FILLED WITH JS! -->
     </div>
 
   </div>
@@ -169,6 +140,7 @@
   const coinCardsContainer = document.querySelector(".coin-cards-container");
   // get data
   const coinArr = loadCoins();
+  displayCoinCards(coinArr);
 
   // EVENT LISTENERS -----------------------------------------------------------
   // userInput AJAX
