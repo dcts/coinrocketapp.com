@@ -1,4 +1,11 @@
+/*
+ * COLORS
+ */
+/*#16282f dark blue bg*/
+
+
 body {
+
   background: rgb(250,250,250);
   background: #e2e9fd;
   background: white;
@@ -18,12 +25,19 @@ h1 {
   background-color: #f9fbfd;
 }
 
+/*
+ * TEXT ALIGN
+ */
 .center {
   text-align: center;
 }
 .justify {
   text-align: justify;
 }
+
+/*
+ * POSITIONING
+ */
 .flex {
   display: flex;
 }
@@ -35,4 +49,17 @@ h1 {
 }
 .flex-column {
   flex-direction: column;
+}
+.pos-absolute {
+  position: absolute;
+}
+.pos-relative {
+  position: relative;
+}
+
+/*
+ * VISIBILITY
+ */
+.transparent {
+  opacity: 0;
 }
