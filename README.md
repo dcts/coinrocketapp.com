@@ -32,7 +32,7 @@ by dcts / v0.0
 
 ### Contribute
 
-if you want to contribute in any way, feel free write me (thomas.starzynski@unibas.ch), I'd love to work on this more intensively! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
+if you want to contribute in any way, feel free write me (thomas.starzynski@unibas.ch), I'd love to work on this more consistently! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
 
 
 ### TO DO LIST
