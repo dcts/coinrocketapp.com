@@ -162,7 +162,7 @@ loadAllCoins().then(() => {
   // check cases USER ID provided
   if (document.URL.split("/?user=").length === 2) {
     let userId = document.URL.split("/?user=")[1];
-    getUser("AyC0xdFfGljDuSx6NhHH").then(data => {
+    getUser(userId).then(data => {
       // get pf in correct ordering
       userPfs = orderPortfolios(data);
       // compute pfvalue for all pf and store inside pf object
