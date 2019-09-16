@@ -4,8 +4,6 @@
 const getUserPortfolios = userId => {
   db.collection("users").doc(userId).get().then(doc => {
     if (doc.exists) {
-      const x = doc.data();
-      console.log(x);
       return doc.data();
     } else {
       console.log("No such document!");
@@ -38,8 +36,6 @@ const getUserId = () => {
   } else {
     let urlSuffix = getUrlSuffix(document.URL);
     let userPf = convertUrlSuffix(urlSuffix);
-    console.log("asdasdasd");
-    console.log(userPf);
   }
 };
 
@@ -88,23 +84,26 @@ const computePortfolioValue = (userPf, allCoins) => {
   return value;
 };
 
-
+const removeAllCoinCards = () => {
+  document.querySelector('.coin-cards-container').innerHTML = "";
+};
 
 const buildCoinCards = (userPf, allCoins) => {
-  for (var key in userPf) {
+  let totalPfValue = userPf.totalValue;
+  for (var key in userPf["coins"]) {
     try {
-      let userCoinSymbol   = key;
-      let userCoinQuantity = userPf[key];
-      buildCoinCard(userCoinSymbol, userCoinQuantity, allCoins);
+      let symbol   = key;
+      let quantity = userPf["coins"][key];
+      buildCoinCard(symbol, quantity, totalPfValue, allCoins);
     } catch (err) {
       console.log(err);
     }
   }
 };
-const buildCoinCard  = (symbol, quantity, allCoins) => {
+const buildCoinCard  = (symbol, quantity, totalPfValue, allCoins) => {
   const target         = allCoins[symbol];
   const svgPath        = `images/svg/color/${symbol.toLowerCase()}.svg`;
-  const percentage     = `${normalizePercentage(target.price * 100 * quantity / portfolioValueFloat)}%`;
+  const percentage     = `${normalizePercentage(target.price * 100 * quantity / totalPfValue)}%`;
   const coinName       = target.name;
   const coinPrice      = `${normalizePrice(target.price)} $`;
   const holdingsValue  = `${normalizeValue(target.price * quantity)} $`;
@@ -131,10 +130,20 @@ const buildCoinCard  = (symbol, quantity, allCoins) => {
   document.querySelector('.coin-cards-container').insertAdjacentHTML("beforeend", innerHTML);
 };
 
+const selectNavbarPf = (name) => {
+  document.querySelectorAll(".pf-group").forEach((pfGroup, indx) => {
+    if (pfGroup.dataset.pfname == name) {
+      selectNthPortfolio(indx+1);
+      closeNav();
+    }
+  });
+};
+
 const orderPortfolios = (data) => {
   let result = {};
   data.portfolioOrdering.map(pfName => {
-    result[pfName] = data[pfName];
+    result[pfName] = {};
+    result[pfName]["coins"] = data[pfName];
     return result;
   });
   return result;
@@ -142,12 +151,37 @@ const orderPortfolios = (data) => {
 
 const addPfToSidenav = (name, value) => {
   const innerHTML = `
-    <div class="pf-group">
+    <div class="pf-group" data-pfname="${name}" onclick="selectNavbarPf('${name}')">
       <a>${name}</a>
       <p class="pf-value">${normalizeValue(value)} $</p>
     </div>
   `;
-  document.getElementById('mySidenav').insertAdjacentHTML("beforeend", innerHTML);
+  document.querySelector('.sidenav-pf-container').insertAdjacentHTML("beforeend", innerHTML);
+};
+
+
+const deselectAllPfsInNavbar = () => {
+  document.querySelector('.sidenav-pf-container').querySelectorAll(".pf-group").forEach(pfGroup => {
+    pfGroup.classList.remove("selected");
+  });
+};
+
+const selectNthPfInNavbar = (n) => {
+  document.querySelector('.sidenav-pf-container').querySelector(`.pf-group:nth-child(${n})`).classList.add("selected");
+};
+
+const selectNthPortfolio = (n) => {
+  // get key ("main portfoil" / "bro")
+  const key = Object.keys(userPfs)[n-1];
+  // get total value
+  document.getElementById('portfolio-value').innerText = `${normalizeValue(userPfs[key]["totalValue"])} $`;
+  document.getElementById('portfolio-value-label').innerText = key;
+  removeAllCoinCards();
+  buildCoinCards(userPfs[key], allCoins);
+  // NAVBAR
+  deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
+  selectNthPfInNavbar(n); // mark selected portfolio as selected
+  // MAIN MENU
 };
 
 // LOAD ALL COINS
@@ -166,29 +200,18 @@ loadAllCoins().then(() => {
       // get pf in correct ordering
       userPfs = orderPortfolios(data);
       // compute pfvalue for all pf and store inside pf object
-      let first = true;
       for (const [key, value] of Object.entries(userPfs)) {
-        console.log(key, value);
-        portfolioValueFloat = computePortfolioValue(value, allCoins);
+        portfolioValueFloat = computePortfolioValue(value["coins"], allCoins);
         userPfs[key]["totalValue"] = portfolioValueFloat;
-        console.log(portfolioValueFloat);
         addPfToSidenav(key, portfolioValueFloat);
-        if (first === true) {
-          document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
-          buildCoinCards(userPfs[key], allCoins);
-          first = false;
-        }
       }
-
+      selectNthPortfolio(1); // show first portfolio
     });
+
   // OLD USECASE SUPPORTED AS WELL
   } else {
-    console.log("else");
     let urlSuffix = getUrlSuffix(document.URL);
-    console.log(urlSuffix);
     let userPf = convertUrlSuffix(urlSuffix);
-    console.log(userPf);
-    console.log(allCoins);
     portfolioValueFloat = computePortfolioValue(userPf, allCoins);
     document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
     buildCoinCards(userPf, allCoins);
