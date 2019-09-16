@@ -88,20 +88,43 @@ const removeAllCoinCards = () => {
   document.querySelector('.coin-cards-container').innerHTML = "";
 };
 
+const sortByValue = (userPf, allCoins) => {
+  let result = Object.keys(userPf.coins).map(symbol => {
+    data = {};
+    data["symbol"] = symbol;
+    data["price"] = allCoins[symbol].price;
+    data["quantity"] = userPf.coins[symbol];
+    data["holdingsValue"] = data["price"] * userPf.coins[symbol];
+    return data;
+  });
+  result.sort(sortCoins);
+  return result;
+};
+
+const sortCoins = (a, b) => {
+  if ( a.holdingsValue > b.holdingsValue ){
+    return -1;
+  }
+  if ( a.holdingsValue < b.holdingsValue ){
+    return 1;
+  }
+  return 0;
+};
+
 const buildCoinCards = (userPf, allCoins) => {
+  let sortedData = sortByValue(userPf, allCoins);
   let totalPfValue = userPf.totalValue;
-  for (var key in userPf["coins"]) {
+  sortedData.forEach(data => {
     try {
-      let symbol   = key;
-      let quantity = userPf["coins"][key];
-      buildCoinCard(symbol, quantity, totalPfValue, allCoins);
+      let symbol   = data.symbol;
+      let quantity = data.quantity;
+      buildCoinCard(symbol, quantity, totalPfValue, allCoins[symbol]);
     } catch (err) {
       console.log(err);
     }
-  }
+  });
 };
-const buildCoinCard  = (symbol, quantity, totalPfValue, allCoins) => {
-  const target         = allCoins[symbol];
+const buildCoinCard  = (symbol, quantity, totalPfValue, target) => {
   const svgPath        = `images/svg/color/${symbol.toLowerCase()}.svg`;
   const percentage     = `${normalizePercentage(target.price * 100 * quantity / totalPfValue)}%`;
   const coinName       = target.name;
