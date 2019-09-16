@@ -74,7 +74,7 @@ img.logo:hover {
 /* THE CONTENT BEHIND THE STICKY HEADER */
 /* ...pull to refresh... */
 /* ...needs same height as the header! */
-.placeholder {
+.placeholder-update-timestamp {
   height: 75px;
   display: flex;
   justify-content: center;
