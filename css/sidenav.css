@@ -34,6 +34,13 @@
 .pf-group {
   margin-top: 10px;
 }
+.pf-group.selected > p {
+  color: white;
+}
+.pf-group.selected > a {
+  font-weight: bold;
+  color: white;
+}
 a {
   cursor: pointer;
 }

@@ -101,10 +101,10 @@ const buildCoinCards = (userPf, allCoins) => {
     }
   }
 };
-const buildCoinCard  = (symbol, quantity, allCoins) => {
+const buildCoinCard  = (symbol, quantity, totalPfValue, allCoins) => {
   const target         = allCoins[symbol];
   const svgPath        = `images/svg/color/${symbol.toLowerCase()}.svg`;
-  const percentage     = `${normalizePercentage(target.price * 100 * quantity / portfolioValueFloat)}%`;
+  const percentage     = `${normalizePercentage(target.price * 100 * quantity / totalPfValue)}%`;
   const coinName       = target.name;
   const coinPrice      = `${normalizePrice(target.price)} $`;
   const holdingsValue  = `${normalizeValue(target.price * quantity)} $`;
@@ -131,6 +131,11 @@ const buildCoinCard  = (symbol, quantity, allCoins) => {
   document.querySelector('.coin-cards-container').insertAdjacentHTML("beforeend", innerHTML);
 };
 
+const selectNavbarPf = (name) => {
+  console.log("hi");
+  console.log(name);
+};
+
 const orderPortfolios = (data) => {
   let result = {};
   data.portfolioOrdering.map(pfName => {
@@ -142,12 +147,34 @@ const orderPortfolios = (data) => {
 
 const addPfToSidenav = (name, value) => {
   const innerHTML = `
-    <div class="pf-group">
+    <div class="pf-group" onclick="selectNavbarPf('${name}')">
       <a>${name}</a>
       <p class="pf-value">${normalizeValue(value)} $</p>
     </div>
   `;
-  document.getElementById('mySidenav').insertAdjacentHTML("beforeend", innerHTML);
+  document.querySelector('.sidenav-pf-container').insertAdjacentHTML("beforeend", innerHTML);
+};
+
+
+const deselectAllPfsInNavbar = () => {
+  document.querySelector('.sidenav-pf-container').querySelectorAll(".pf-group").forEach(pfGroup => {
+    pfGroup.classList.remove("selected");
+  });
+};
+
+const selectNthPfInNavbar = (n) => {
+  document.querySelector('.sidenav-pf-container').querySelector(`.pf-group:nth-child(${n})`).classList.add("selected");
+};
+
+const selectNthPortfolio = (n) => {
+  // get key ("main portfoil" / "bro")
+  const key = Object.keys(userPfs)[n-1];
+  // get total value
+  document.getElementById('portfolio-value').innerText = `${normalizeValue(userPfs[key]["totalValue"])} $`;
+  buildCoinCards(userPfs[key], allCoins);
+  // NAVBAR
+  deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
+  selectNthPfInNavbar(n); // mark selected portfolio as selected
 };
 
 // LOAD ALL COINS
@@ -173,14 +200,10 @@ loadAllCoins().then(() => {
         userPfs[key]["totalValue"] = portfolioValueFloat;
         console.log(portfolioValueFloat);
         addPfToSidenav(key, portfolioValueFloat);
-        if (first === true) {
-          document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
-          buildCoinCards(userPfs[key], allCoins);
-          first = false;
-        }
       }
-
+      selectNthPortfolio(1); // show first portfolio
     });
+
   // OLD USECASE SUPPORTED AS WELL
   } else {
     console.log("else");
