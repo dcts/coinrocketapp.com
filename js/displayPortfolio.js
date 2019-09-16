@@ -36,8 +36,6 @@ const getUserId = () => {
   } else {
     let urlSuffix = getUrlSuffix(document.URL);
     let userPf = convertUrlSuffix(urlSuffix);
-    console.log("asdasdasd");
-    console.log(userPf);
   }
 };
 
@@ -86,7 +84,9 @@ const computePortfolioValue = (userPf, allCoins) => {
   return value;
 };
 
-
+const removeAllCoinCards = () => {
+  document.querySelector('.coin-cards-container').innerHTML = "";
+};
 
 const buildCoinCards = (userPf, allCoins) => {
   let totalPfValue = userPf.totalValue;
@@ -131,8 +131,12 @@ const buildCoinCard  = (symbol, quantity, totalPfValue, allCoins) => {
 };
 
 const selectNavbarPf = (name) => {
-  console.log("hi");
-  console.log(name);
+  document.querySelectorAll(".pf-group").forEach((pfGroup, indx) => {
+    if (pfGroup.dataset.pfname == name) {
+      selectNthPortfolio(indx+1);
+      closeNav();
+    }
+  });
 };
 
 const orderPortfolios = (data) => {
@@ -142,14 +146,12 @@ const orderPortfolios = (data) => {
     result[pfName]["coins"] = data[pfName];
     return result;
   });
-  console.log("------");
-  console.log(result);
   return result;
 };
 
 const addPfToSidenav = (name, value) => {
   const innerHTML = `
-    <div class="pf-group" onclick="selectNavbarPf('${name}')">
+    <div class="pf-group" data-pfname="${name}" onclick="selectNavbarPf('${name}')">
       <a>${name}</a>
       <p class="pf-value">${normalizeValue(value)} $</p>
     </div>
@@ -173,10 +175,13 @@ const selectNthPortfolio = (n) => {
   const key = Object.keys(userPfs)[n-1];
   // get total value
   document.getElementById('portfolio-value').innerText = `${normalizeValue(userPfs[key]["totalValue"])} $`;
+  document.getElementById('portfolio-value-label').innerText = key;
+  removeAllCoinCards();
   buildCoinCards(userPfs[key], allCoins);
   // NAVBAR
-  // deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
-  // selectNthPfInNavbar(n); // mark selected portfolio as selected
+  deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
+  selectNthPfInNavbar(n); // mark selected portfolio as selected
+  // MAIN MENU
 };
 
 // LOAD ALL COINS
@@ -196,22 +201,17 @@ loadAllCoins().then(() => {
       userPfs = orderPortfolios(data);
       // compute pfvalue for all pf and store inside pf object
       for (const [key, value] of Object.entries(userPfs)) {
-        console.log(key, value);
         portfolioValueFloat = computePortfolioValue(value["coins"], allCoins);
         userPfs[key]["totalValue"] = portfolioValueFloat;
-        addPfToSidenav(key["coins"], portfolioValueFloat);
+        addPfToSidenav(key, portfolioValueFloat);
       }
       selectNthPortfolio(1); // show first portfolio
     });
 
   // OLD USECASE SUPPORTED AS WELL
   } else {
-    console.log("else");
     let urlSuffix = getUrlSuffix(document.URL);
-    console.log(urlSuffix);
     let userPf = convertUrlSuffix(urlSuffix);
-    console.log(userPf);
-    console.log(allCoins);
     portfolioValueFloat = computePortfolioValue(userPf, allCoins);
     document.getElementById('portfolio-value').innerText = `${normalizeValue(portfolioValueFloat)} $`;
     buildCoinCards(userPf, allCoins);
