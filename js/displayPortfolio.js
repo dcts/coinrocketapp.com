@@ -4,8 +4,6 @@
 const getUserPortfolios = userId => {
   db.collection("users").doc(userId).get().then(doc => {
     if (doc.exists) {
-      const x = doc.data();
-      console.log(x);
       return doc.data();
     } else {
       console.log("No such document!");
@@ -91,11 +89,12 @@ const computePortfolioValue = (userPf, allCoins) => {
 
 
 const buildCoinCards = (userPf, allCoins) => {
-  for (var key in userPf) {
+  let totalPfValue = userPf.totalValue;
+  for (var key in userPf["coins"]) {
     try {
-      let userCoinSymbol   = key;
-      let userCoinQuantity = userPf[key];
-      buildCoinCard(userCoinSymbol, userCoinQuantity, allCoins);
+      let symbol   = key;
+      let quantity = userPf["coins"][key];
+      buildCoinCard(symbol, quantity, totalPfValue, allCoins);
     } catch (err) {
       console.log(err);
     }
@@ -139,9 +138,12 @@ const selectNavbarPf = (name) => {
 const orderPortfolios = (data) => {
   let result = {};
   data.portfolioOrdering.map(pfName => {
-    result[pfName] = data[pfName];
+    result[pfName] = {};
+    result[pfName]["coins"] = data[pfName];
     return result;
   });
+  console.log("------");
+  console.log(result);
   return result;
 };
 
@@ -173,8 +175,8 @@ const selectNthPortfolio = (n) => {
   document.getElementById('portfolio-value').innerText = `${normalizeValue(userPfs[key]["totalValue"])} $`;
   buildCoinCards(userPfs[key], allCoins);
   // NAVBAR
-  deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
-  selectNthPfInNavbar(n); // mark selected portfolio as selected
+  // deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
+  // selectNthPfInNavbar(n); // mark selected portfolio as selected
 };
 
 // LOAD ALL COINS
@@ -193,13 +195,11 @@ loadAllCoins().then(() => {
       // get pf in correct ordering
       userPfs = orderPortfolios(data);
       // compute pfvalue for all pf and store inside pf object
-      let first = true;
       for (const [key, value] of Object.entries(userPfs)) {
         console.log(key, value);
-        portfolioValueFloat = computePortfolioValue(value, allCoins);
+        portfolioValueFloat = computePortfolioValue(value["coins"], allCoins);
         userPfs[key]["totalValue"] = portfolioValueFloat;
-        console.log(portfolioValueFloat);
-        addPfToSidenav(key, portfolioValueFloat);
+        addPfToSidenav(key["coins"], portfolioValueFloat);
       }
       selectNthPortfolio(1); // show first portfolio
     });
