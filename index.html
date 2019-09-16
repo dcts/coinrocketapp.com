@@ -22,6 +22,9 @@
   <!-- CARDS FACEBOOK / TWITTER / SOCIAL MEDIA ... when sharing -->
   <!-- @TODO -->
 
+  <!-- FONTAWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
   <!-- FAVICON -->
   <link rel='shortcut icon' type='image/x-icon' href='images/favicon/favicon.ico' />
   <!-- @TODO -->
@@ -43,6 +46,10 @@
     <div class="sidenav-pf-container">
       <!-- WILL BE FILLED BY JS -->
     </div>
+    <div onclick="addNewPortfolio()" class="flex align-center add-pf-btn">
+      <i class="fas fa-folder-plus"></i>&nbsp&nbsp
+      <p>Add New Portfolio</p>
+    </div>
   </div>
 
     <div class="header">
@@ -56,7 +63,7 @@
       <div class="currency">USD</div>
     </div>
     <div class="placeholder-update-timestamp">
-      <p>last price update: </p>
+      <p><strong>last price update:</strong></p>
     </div>
 
     <!-- COIN CARDS CONTAINER -> will be populated with -->

@@ -194,7 +194,6 @@ const addPfToSidenav = (name, value) => {
   document.querySelector('.sidenav-pf-container').insertAdjacentHTML("beforeend", innerHTML);
 };
 
-
 const deselectAllPfsInNavbar = () => {
   document.querySelector('.sidenav-pf-container').querySelectorAll(".pf-group").forEach(pfGroup => {
     pfGroup.classList.remove("selected");
@@ -202,7 +201,7 @@ const deselectAllPfsInNavbar = () => {
 };
 
 const selectNthPfInNavbar = (n) => {
-  document.querySelector('.sidenav-pf-container').querySelector(`.pf-group:nth-child(${n})`).classList.add("selected");
+  document.querySelectorAll(`.pf-group`)[n-1].classList.add("selected");
 };
 
 const selectNthPortfolio = (n) => {
@@ -213,10 +212,13 @@ const selectNthPortfolio = (n) => {
   document.getElementById('portfolio-value-label').innerText = key;
   removeAllCoinCards();
   buildCoinCards(userPfs[key], allCoins);
-  // NAVBAR
+  // navbar + main portfolio name and total value
   deselectAllPfsInNavbar(); // deselect all portfolios in the navmenu
   selectNthPfInNavbar(n); // mark selected portfolio as selected
-  // MAIN MENU
+};
+
+const addNewPortfolio = () => {
+  alert("feature not availible yet! reach out to github.com/dcts for requests!");
 };
 
 // LOAD ALL COINS
@@ -227,6 +229,9 @@ let userPfs;
 let portfolioValueFloat = 0.0;
 let userPf;
 loadAllCoins().then(() => {
+
+  // display last updated price
+  document.querySelector(".placeholder-update-timestamp").innerHTML = `<p><strong>last price update:</strong><br>${allCoins.updatedAt}</p>`;
 
   // check cases USER ID provided
   if (document.URL.split("/?user=").length === 2) {

@@ -34,7 +34,6 @@
 .pf-group {
   margin-top: 10px;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 .pf-group.selected > p {
@@ -66,4 +65,23 @@ a {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+.add-pf-btn {
+  cursor: pointer;
+  /*align-items: center;*/
+  /*background-color: #1cafff;*/
+  /*border-radius: 20px;*/
+  /*border: 2px solid rgba(255,255,255,0.6);*/
+  color: #1cafff; /*rgba(255,255,255,0.6);*/
+  margin: 30px 8px 8px 32px;
+  /*padding: 8px 8px 8px 32px;*/
+  max-width: 180px;
+}
+.add-pf-btn > p {
+  font-weight: bold;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
 }
