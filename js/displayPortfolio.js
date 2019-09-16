@@ -94,14 +94,13 @@ const buildCoinCards = (userPf, allCoins) => {
     try {
       let symbol   = key;
       let quantity = userPf["coins"][key];
-      buildCoinCard(symbol, quantity, totalPfValue, allCoins);
+      buildCoinCard(symbol, quantity, totalPfValue, allCoins[symbol]);
     } catch (err) {
       console.log(err);
     }
   }
 };
-const buildCoinCard  = (symbol, quantity, totalPfValue, allCoins) => {
-  const target         = allCoins[symbol];
+const buildCoinCard  = (symbol, quantity, totalPfValue, target) => {
   const svgPath        = `images/svg/color/${symbol.toLowerCase()}.svg`;
   const percentage     = `${normalizePercentage(target.price * 100 * quantity / totalPfValue)}%`;
   const coinName       = target.name;
