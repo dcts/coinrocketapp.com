@@ -19,6 +19,7 @@ by dcts / v0.0
 - [x] refactor card creatiion code
 - [ ] landing page where user can input his holdings and gets redirected to his portfolio link
 - [ ] Coin Rocket Logo design
+- [ ] refresh feature on pull
 - [ ] improve coin cards (add 24h/7d % changes)
 - [ ] responsiveness: designs for tablets and desktop usage
 - [ ] support for different currencies (€ and $)
