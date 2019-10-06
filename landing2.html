@@ -43,6 +43,10 @@
     <div class="coin-cards-container">
       <!-- WILL BE FILLED WITH JS! -->
     </div>
+    <div class="btn-next-container flex">
+      <div class="btn-next">NEXT</div>
+    </div>
+
 
   </div>
 </body>
@@ -51,6 +55,20 @@
 <style>
   body {
     background-color: black;
+  }
+  .btn-next-container {
+    display: sticky;
+    justify-content: center;
+    bottom: 10px;
+    position: sticky;
+  }
+  .btn-next {
+    padding: 17px 32px;
+    background-color: #1b4229;
+    color: white;
+    font-size: 31px;
+    font-weight: bold;
+    border-radius: 40px;
   }
 </style>
 
@@ -83,6 +101,22 @@
       addCoinInput.value = "";
       addCoinInput.focus()
     }
+    if (coinCardSelected()) {
+      displayNextButton();
+    } else {
+      disableNextButton();
+    }
+  };
+
+  const coinCardSelected = () => {
+    return document.querySelector(".coin-card-selected") != null
+  };
+
+  const displayNextButton = () => {
+    document.querySelector(".btn-next-container").classList.remove("hidden");
+  };
+  const disableNextButton = () => {
+    document.querySelector(".btn-next-container").classList.add("hidden");
   };
 
   // inser coincard html
@@ -163,6 +197,7 @@
     addCoinInput.value = "";
   });
 
+  // display next button
 
 
 

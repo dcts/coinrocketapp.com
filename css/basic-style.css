@@ -62,3 +62,6 @@ h1 {
 .transparent {
   opacity: 0;
 }
+.hidden {
+  visibility: hidden;
+}
