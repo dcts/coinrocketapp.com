@@ -89,10 +89,15 @@ const removeAllCoinCards = () => {
 };
 
 const sortByValue = (userPf, allCoins) => {
+  console.log(Object.keys(userPf.coins));
   let result = Object.keys(userPf.coins).map(symbol => {
     data = {};
     data["symbol"] = symbol;
-    data["price"] = allCoins[symbol].price;
+    try {
+      data["price"] = allCoins[symbol].price;
+    } catch {
+      data["price"] = 0;
+    }
     data["quantity"] = userPf.coins[symbol];
     data["holdingsValue"] = data["price"] * userPf.coins[symbol];
     return data;
