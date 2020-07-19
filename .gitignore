@@ -1,3 +1,6 @@
 # all files that start with "_key" or "_test" are not tracked!
 _key*
 _test*
+
+# ignore vs code history plugin
+.history
