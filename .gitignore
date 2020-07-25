@@ -4,3 +4,4 @@ _test*
 
 # ignore vs code history plugin
 .history
+.firebase
