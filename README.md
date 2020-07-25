@@ -30,11 +30,11 @@ firebase deploy
 - [x] refactor card creatiion code
 - [ ] landing page where user can input his holdings and gets redirected to his portfolio link
 - [ ] Coin Rocket Logo design
-- [ ] refresh feature on pull
+- [x] refresh feature on pull
 - [ ] improve coin cards (add 24h/7d % changes)
 - [ ] responsiveness: designs for tablets and desktop usage
 - [ ] support for different currencies (€ and $)
-- [ ] refactor app as react app
+- [ ] refactor app as lit-element app
 - [x] create firebase database with conjobs (each 5 mins update crypto prices and keep track of price history to be able to display a chart of the last 7 days)
 - [ ] expandable cards (show price chart with option to select between 1d, 7d, 1m, 3m) -> link to coinmarketcap
 - [ ] sortableJS -> make cards sortable and adapt url (if such a functionality is possible) -> indicate to user that link has changes
@@ -44,4 +44,4 @@ firebase deploy
 
 ### Contribute
 
-if you want to contribute in any way, feel free write me (thomas.starzynski@unibas.ch), I'd love to work on this more consistently! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
+if you want to contribute in any way, feel free write me (thomas@liist.com)! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
