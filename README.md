@@ -3,7 +3,7 @@
 
 no features, no download, fast loadtimes. See all coins: [coinrocketapp.com](http://coinrocketapp.web.app)
 
-<img src="https://user-images.githubusercontent.com/44790691/88468079-a4baf980-cede-11ea-97b2-5e13ec1e81a9.png" width="250">
+<img src="https://user-images.githubusercontent.com/44790691/88468079-a4baf980-cede-11ea-97b2-5e13ec1e81a9.png" width="400">
 
 The app is in the making. Its a cryptocurrency portfolio tracker designed for mobile usage that does not require you to download an app or to create an accout, simply track your crypto portfolio by submitting your holdings on the landing page, which will then generate a link for you where you can directly see your portfolio! No download, no registration, fast loadtimes!
 - landing page is still in the making. Current state here: http://coinrocketapp.com/landing.html
