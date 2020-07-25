@@ -60,14 +60,12 @@ const normalizePrice = (price) => {
     return price.toFixed(6)
   } else if (price < 0.1) {
     return price.toFixed(5)
-  } else if (price < 0.1) {
+  } else if (price < 1) {
     return price.toFixed(4)
   } else {
     return price.toFixed(2)
   }
 };
-
-
 
 const computePortfolioValue = (userPf, allCoins) => {
   let value = 0;
