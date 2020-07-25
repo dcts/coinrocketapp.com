@@ -89,11 +89,11 @@ a {
 /* FLOATING MENU */
 #floating-menu {
   padding: 19px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-color: #293c58;
   border-radius: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
   bottom: 10px;
   right: 25px;
   box-shadow: 0 0 14px rgba(0,0,0,0.5);
@@ -102,7 +102,7 @@ a {
   z-index: 1000;
 }
 #floating-menu > img {
-  width: 35px;
+  width: 30px;
 }
 #floating-menu.reversed {
   background-color: white;

@@ -14,6 +14,17 @@ The app is in the making. Its a cryptocurrency portfolio tracker designed for mo
 
 by dcts / v0.0
 
+### Development
+```bash
+npm server
+```
+
+### Deployment / Production
+Hosted on firebase: coinrocketapp.web.app
+```bash
+firebase deploy
+```
+
 ### ToDo List / Bugs (in development)
 - [x] Total Portfolio Value is not working (hardcoded)
 - [x] refactor card creatiion code
@@ -34,6 +45,3 @@ by dcts / v0.0
 ### Contribute
 
 if you want to contribute in any way, feel free write me (thomas.starzynski@unibas.ch), I'd love to work on this more consistently! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
-
-
-### TO DO LIST
