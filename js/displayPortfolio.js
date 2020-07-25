@@ -123,6 +123,7 @@ const buildCoinCards = (userPf, allCoins) => {
       let quantity = data.quantity;
       buildCoinCard(symbol, quantity, totalPfValue, allCoins[symbol]);
     } catch (err) {
+      console.log(data)
       console.log(err);
     }
   });

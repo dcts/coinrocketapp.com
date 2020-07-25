@@ -43,18 +43,19 @@
 <body>
 
   <div class="container-main">
-  <!-- SIDENAVIGATION -->
-  <div id="mySidenav" class="sidenav">
-    <a class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="sidenav-pf-container">
-      <!-- WILL BE FILLED BY JS -->
+    <!-- SIDENAVIGATION -->
+    <div id="mySidenav" class="sidenav">
+      <a class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sidenav-pf-container">
+        <!-- WILL BE FILLED BY JS -->
+      </div>
+      <div onclick="addNewPortfolio()" class="flex align-center add-pf-btn">
+        <i class="fas fa-folder-plus"></i>&nbsp&nbsp
+        <p>Add New Portfolio</p>
+      </div>
     </div>
-    <div onclick="addNewPortfolio()" class="flex align-center add-pf-btn">
-      <i class="fas fa-folder-plus"></i>&nbsp&nbsp
-      <p>Add New Portfolio</p>
-    </div>
-  </div>
 
+    <!-- HEADER -->
     <div class="header">
       <div class="menu" onclick="openNav()"><div></div><div></div><div></div></div>
       <div class="overview" onclick="location.reload();">
@@ -71,6 +72,11 @@
 
     <!-- COIN CARDS CONTAINER -> will be populated with -->
     <div class="coin-cards-container">
+    </div>
+
+    <!-- FLOATING MENU BUTTON -->
+    <div id="floating-menu" onclick="openNav()">
+      <img src="/images/assets/list-solid.svg" alt="">
     </div>
 
   </div>
