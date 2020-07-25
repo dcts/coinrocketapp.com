@@ -150,7 +150,7 @@ const buildCoinCard  = (symbol, quantity, totalPfValue, target) => {
     <div class="coin-card">
       <div class="icon">
         <div class="icon-flex">
-          <img src="${svgPath}" alt="">
+          <img src="${svgPath}" onerror="this.src='${target.imageUrl}'; this.style = 'object-fit: scale-down;'" alt="">
           <div class="percentage">${percentage}</div>
         </div>
       </div>
@@ -260,7 +260,11 @@ loadAllCoins().then(() => {
     document.getElementById('portfolio-value').innerText = `${normalizeValue(userPf.totalValue)} $`;
     buildCoinCardsNoSorting(userPf, allCoins);
   }
+
+  // load alternative images
+  // document.querySelectorAll(".icon img").forEach(imageElement => {
+  //   imageElement.addEventListener("error", () => {
+  //     imageElement.dataset.altUrl
+  //   })
+  // })
 });
-
-
-

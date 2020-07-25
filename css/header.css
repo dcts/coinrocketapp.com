@@ -53,9 +53,10 @@ img.logo:hover {
 /* MENU */
 .menu {
   position: absolute;
-  left: 24px;
-  top: 26px;
+  left: 4px;
+  top: 6px;
   cursor: pointer;
+  padding: 20px;
 }
 .menu > div {
   width: 22px;
