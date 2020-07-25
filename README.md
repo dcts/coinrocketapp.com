@@ -16,7 +16,7 @@ by dcts / v0.0
 
 ### Development
 ```bash
-npm server
+firebase serve
 ```
 
 ### Deployment / Production
