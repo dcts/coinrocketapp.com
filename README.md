@@ -45,3 +45,9 @@ firebase deploy
 ### Contribute
 
 if you want to contribute in any way, feel free write me (thomas@liist.com)! CoinRocket needs to be ready for the next crypto bullrun when the market gets flooded with new shitcoins.
+
+
+# NOTES NFTS
+```js
+Number(document.querySelectorAll(".InfoContainerreact__InfoContainer-sc-15x3z7c-0 > *")[2].querySelector(".Info--icon").innerText)
+```
