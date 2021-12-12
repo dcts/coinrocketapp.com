@@ -151,7 +151,7 @@ const buildCoinCard  = (symbol, quantity, totalPfValue, target) => {
     <div class="coin-card">
       <div class="icon">
         <div class="icon-flex">
-          <img src="${svgPath}" onerror="this.src='${target.imageUrl}'; this.style = 'object-fit: scale-down;'" alt="">
+          <img src="${svgPath}" onerror="this.src='${target.imageUrl}'; this.style = 'object-fit: cover;'" alt="">
           <div class="percentage">${percentage}</div>
         </div>
       </div>
