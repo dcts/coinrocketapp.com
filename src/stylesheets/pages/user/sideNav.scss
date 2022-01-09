@@ -1,0 +1,116 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #2a3c57;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 200;
+  &.open {
+    width: 100vw,
+  }
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  padding-bottom: 0;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgba(255,255,255,0.6); /*#f1f1f1;*/
+  display: block;
+  transition: 0.3s;
+}
+.sidenav .pf-value {
+  padding: 0;
+  padding-left: 32px;
+  margin: 0;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  display: block;
+  transition: 0.3s;
+}
+.pf-group {
+  margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.pf-group.selected > p {
+  color: white;
+}
+.pf-group.selected > a {
+  font-weight: bold;
+  color: white;
+}
+a {
+  cursor: pointer;
+}
+.sidenav a:hover {
+  color: white;
+}
+.sidenav a.selected {
+  font-weight: bold;
+  color: white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.add-pf-btn {
+  cursor: pointer;
+  /*align-items: center;*/
+  /*background-color: #1cafff;*/
+  /*border-radius: 20px;*/
+  /*border: 2px solid rgba(255,255,255,0.6);*/
+  color: #1cafff; /*rgba(255,255,255,0.6);*/
+  margin: 30px 8px 8px 32px;
+  /*padding: 8px 8px 8px 32px;*/
+  max-width: 180px;
+}
+.add-pf-btn > p {
+  font-weight: bold;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* FLOATING MENU */
+#floating-menu {
+  padding: 19px;
+  width: 30px;
+  height: 30px;
+  background-color: #293c58;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  bottom: 10px;
+  right: 25px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.5);
+  position:fixed;
+  cursor: pointer;
+  z-index: 1000;
+}
+#floating-menu > img {
+  width: 30px;
+}
+#floating-menu.reversed {
+  background-color: white;
+  color: #293c58;
+}
+
+
+

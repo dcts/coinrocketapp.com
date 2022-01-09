@@ -5,3 +5,6 @@ _test*
 # ignore vs code history plugin
 .history
 .firebase
+
+# node modules
+node_modules

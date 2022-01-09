@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 0d33ee94d1be9cbd95bc0878ca436e47cc3f1bfa dcts <thomas@liist.com> 1639430713 +0100	branch: Created from HEAD
+0d33ee94d1be9cbd95bc0878ca436e47cc3f1bfa 1a6b3e594e881da3effa4743244a9502a67f99ff dcts <thomas@liist.com> 1639430722 +0100	commit: :construction: changing currency backend done
+1a6b3e594e881da3effa4743244a9502a67f99ff e046900840e17e8bb3d01e05aab9ddf3e98d3541 dcts <thomas@liist.com> 1639442194 +0100	commit: :sparkle: prototype for currency selector
+e046900840e17e8bb3d01e05aab9ddf3e98d3541 c295ce576f6c9eafa2d837380e05a8d66f661320 dcts <thomas@liist.com> 1639442645 +0100	commit: :sparkle: add currency changer
