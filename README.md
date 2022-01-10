@@ -1,7 +1,7 @@
 # COIN ROCKET 🚀
 ### worlds fastest cryptocurrency portfolio tracker
 
-no features, no download, fast loadtimes. See all coins: [coinrocketapp.com](http://coinrocketapp.web.app)
+no features, no download, fast loadtimes. See [DEMO](http://coinrocketapp.com/user/demo)
 
 <img src="https://user-images.githubusercontent.com/44790691/88468079-a4baf980-cede-11ea-97b2-5e13ec1e81a9.png" width="400">
 
