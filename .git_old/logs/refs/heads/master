@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 9feb4353e5d6b8aed923e03db212d6541a9d13b7 dcts <thomas@liist.com> 1632174097 +0200	commit (initial): :tada: copy from boilerplate and init database fetching
+9feb4353e5d6b8aed923e03db212d6541a9d13b7 adaaee0afc68184661a561a1d55f47840e40dd5c dcts <thomas@liist.com> 1639345132 +0100	merge import-coinrocket-frontend-code: Fast-forward
+adaaee0afc68184661a561a1d55f47840e40dd5c 72c81d421f2c359304b00f1e6978e96b3dfda0eb dcts <thomas@liist.com> 1639353832 +0100	commit: :rocket: deploy to production
+72c81d421f2c359304b00f1e6978e96b3dfda0eb 5207b6c0eb02aad2d3827b8be724b6c1f4140d5e dcts <thomas@liist.com> 1639424881 +0100	commit: :bug: fix positioning + remove blue box on phones on click
+5207b6c0eb02aad2d3827b8be724b6c1f4140d5e 0d33ee94d1be9cbd95bc0878ca436e47cc3f1bfa dcts <thomas@liist.com> 1639428045 +0100	commit: :sparkle: apply bugfix to whole document
+0d33ee94d1be9cbd95bc0878ca436e47cc3f1bfa c295ce576f6c9eafa2d837380e05a8d66f661320 dcts <thomas@liist.com> 1639442658 +0100	merge change-currency: Fast-forward
+c295ce576f6c9eafa2d837380e05a8d66f661320 9adfe51fb4f0590a8a042c5005e2ae60d66464a3 dcts <thomas@liist.com> 1639443314 +0100	commit: :sparkle: :art: add red dot indicating currency swaper
