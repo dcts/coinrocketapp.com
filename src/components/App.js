@@ -31,26 +31,27 @@ const App = () => {
   // const {userId} = useParams();
   // console.log("created APP");
   // console.log(userId);
+  const renderUserPage = () => {
+    return (
+      <UserContext getCoinrocketUserData={getCoinrocketUserData}>
+        <User/>
+      </UserContext>
+    )
+  }
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <UserContext getCoinrocketUserData={getCoinrocketUserData}>
-            <User/>
-          </UserContext>
+          {renderUserPage()}
         </Route>
-        {/* <Route exact path="/user/:userId">
-          <Redirect
-            to={{
-              pathname: "/user",
-              search: "?id=demo",
-            }}
-          />
-        </Route> */}
+        <Route exact path="/landing">
+          <Landing />
+        </Route>
+        <Route exact path="/user/:userId">
+          {renderUserPage()}
+        </Route>
         <Route exact path="/user">
-          <UserContext getCoinrocketUserData={getCoinrocketUserData}>
-            <User/>
-          </UserContext>
+          {renderUserPage()}
         </Route>
         <Route exact path="/404">
           <Error404 />

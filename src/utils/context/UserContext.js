@@ -28,6 +28,9 @@ export default ({ children, getCoinrocketUserData }) => {
   if (!userId) {
     userId = urlParams.get("userId");
   }
+  if (!userId) {
+    window.location.href = "/landing";
+  }
 
   // load all needed data from database
   useEffect(() => {
