@@ -1,7 +1,6 @@
 
 import React, { useContext } from "react";
 import { UserContext } from "../../../utils/context/UserContext";
-import { normalizeValue } from "../../../utils/DataHelper.js";
 
 import CoinCard from './CoinCard';
 

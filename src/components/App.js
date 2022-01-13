@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Landing from "./pages/Landing.js";
 import Error404 from "./pages/Error404.js";
 import User from './pages/User.js';
@@ -27,16 +28,30 @@ const functions = getFunctions(app); // all your callable functions are now acce
 const getCoinrocketUserData = httpsCallable(functions, 'getCoinrocketUserData');
 
 const App = () => {
+  // const {userId} = useParams();
+  // console.log("created APP");
+  // console.log(userId);
+  const renderUserPage = () => {
+    return (
+      <UserContext getCoinrocketUserData={getCoinrocketUserData}>
+        <User/>
+      </UserContext>
+    )
+  }
   return (
     <Router>
       <Switch>
         <Route exact path="/">
+          {renderUserPage()}
+        </Route>
+        <Route exact path="/landing">
           <Landing />
         </Route>
         <Route exact path="/user/:userId">
-          <UserContext getCoinrocketUserData={getCoinrocketUserData}>
-            <User/>
-          </UserContext>
+          {renderUserPage()}
+        </Route>
+        <Route exact path="/user">
+          {renderUserPage()}
         </Route>
         <Route exact path="/404">
           <Error404 />

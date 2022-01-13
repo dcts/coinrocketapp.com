@@ -21,6 +21,16 @@ export default ({ children, getCoinrocketUserData }) => {
 
   // get userId
   let { userId } = useParams();
+  const urlParams = new URLSearchParams(window.location.search);
+  if (!userId) {
+    userId = urlParams.get("id");
+  }
+  if (!userId) {
+    userId = urlParams.get("userId");
+  }
+  if (!userId) {
+    window.location.href = "/landing";
+  }
 
   // load all needed data from database
   useEffect(() => {
