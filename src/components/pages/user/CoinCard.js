@@ -13,6 +13,7 @@ const CoinCard = ({coin}) => {
   //     quantity: 13000000,
   //     valueUSD: 114095.01999999999
   //   },
+  //   percentageOfPortfolio: 0.2341
   //   id: "holotoken",
   //   image: "https://assets.coingecko.com/coins/images/3348/large/Holologo_Profile.png?1547037966",
   //   name: "Holo",
@@ -28,6 +29,9 @@ const CoinCard = ({coin}) => {
 
   const coinValueConverted = convertCurrency(coin.holdings.valueUSD, selectedCurrency, data.currencyRates);
   const coinDisplayValue = normalizePrice(coinValueConverted);
+
+  const percentageStr = `${(coin.percentageOfPortfolio*100).toFixed(0)}%`;
+
   return (
     <div className="coin-card">
       { coin.id &&
@@ -35,7 +39,7 @@ const CoinCard = ({coin}) => {
           <div className="icon">
             <div className="icon-flex">
               <img src={coin.image} alt="" />
-              <div className="percentage">{portfolioPercentage}</div>
+              <div className="percentage">{percentageStr}</div>
             </div>
           </div>
           <div className="coin-info">
