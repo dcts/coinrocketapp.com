@@ -1,6 +1,3 @@
-import { useState, useEffect /*, useRef */} from "react";
-import { useParams } from "react-router-dom";
-
 import Sidenav from "./user/Sidenav.js";
 import Header from "./user/Header.js";
 import CoinCardsList from "./user/CoinCardsList.js";
