@@ -10,9 +10,6 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFunctions, httpsCallable } from "firebase/functions";
 
-const dotenv = require("dotenv");
-dotenv.config();
-
 // Initialize Firebase Functions
 const app = initializeApp({
   apiKey: "AIzaSyAEygIG7B48mvxkm13bcHIzn3kJZqTK1kY",
