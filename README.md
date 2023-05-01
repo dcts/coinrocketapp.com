@@ -33,8 +33,8 @@ firebase deploy
 - [x] refresh feature on pull
 - [ ] improve coin cards (add 24h/7d % changes)
 - [ ] responsiveness: designs for tablets and desktop usage
-- [ ] support for different currencies (€ and $)
-- [ ] refactor app as lit-element app
+- [x] support for different currencies (€ and $)
+- [x] refactor app as reactapp
 - [x] create firebase database with conjobs (each 5 mins update crypto prices and keep track of price history to be able to display a chart of the last 7 days)
 - [ ] expandable cards (show price chart with option to select between 1d, 7d, 1m, 3m) -> link to coinmarketcap
 - [ ] sortableJS -> make cards sortable and adapt url (if such a functionality is possible) -> indicate to user that link has changes
